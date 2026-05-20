@@ -1473,27 +1473,28 @@
   <div id="tab-today" class="section active">
 
     <div id="scene-home">
-      <div class="screen-title">你现在在哪里？</div>
-      <div class="screen-sub">点当前场景，直接看要说什么、问什么、复制什么。</div>
+      <div class="screen-title">现在主线：珠海接收/落户</div>
+      <div class="screen-sub">北京户籍链条已完成。现在先等迁移证原件到珠海，再去户政窗口办理接收，并继续推进出生公证。</div>
 
       <div class="scene-grid">
+        <button class="scene-btn" onclick="showTab('window'); showWindowPanel('police')">
+          <span class="scene-emoji">🏢</span>
+          <span>
+            <span class="scene-title">爸妈去珠海户政</span>
+            <span class="scene-note">迁移证接收、是否可代办、曾用名怎么处理</span>
+          </span>
+        </button>
         <button class="scene-btn" onclick="showTab('window'); showWindowPanel('notary')">
           <span class="scene-emoji">🏛️</span>
           <span>
-            <span class="scene-title">爸妈在公证处</span>
-            <span class="scene-note">现场怎么说、要问什么、材料不够怎么办</span>
-          </span>
-        </button>
-        <button class="scene-btn" onclick="showTab('window'); showWindowPanel('tsinghua')">
-          <span class="scene-emoji">🚂</span>
-          <span>
-            <span class="scene-title">四叔去清华查户口</span>
-            <span class="scene-note">电话地址、照着说、拿什么带回来</span>
+            <span class="scene-title">继续问公证处</span>
+            <span class="scene-note">拿到迁移证/落户材料后，确认出生公证补件口径</span>
           </span>
         </button>
       </div>
 
-      <div class="box-gold"><strong>重要提醒：</strong>户口簿/户籍材料是出生公证的常规审核材料。我们不是说“户籍页不需要”，而是因为申请人在国外、户籍曾在清华集体户、当前户籍页暂时无法提供，所以请公证处确认可接受哪些替代或补充材料。窗口提到落户、身份证、本人到场时，先确认这是否是出生公证必须材料；所有决定先拍照发群里确认，不要现场临时签署新的户口迁移、落户或身份证申请。</div>
+      <div class="box-red"><strong>当前关键提醒：</strong>户口迁移证已办好并寄往珠海，右下角显示有效期至 <strong>2026年6月29日</strong>。收到原件后先拍完整照片留档，再尽快去珠海户政/派出所办理接收或确认下一步，避免过期。</div>
+      <div class="box-gold"><strong>不要再跑北京主线：</strong>清华确认户口已迁出，中关村派出所已办理户口迁移证。北京内容现在只作已完成记录，当前不要继续要求清华开材料。</div>
 
       <div class="card">
         <div class="card-title">
@@ -1503,22 +1504,22 @@
           <li>
             <div class="dot dot-y">✓</div>
             <div>
-              <div class="item-l">先请公证处明确能否预审现有材料</div>
-              <div class="item-n">我们现在办的是出生公证，不是先办落户或换身份证。</div>
+              <div class="item-l">查顺丰并等待迁移证原件</div>
+              <div class="item-n">收到后拍完整照片：抬头、姓名、曾用名、迁往地址、迁移证编号、有效期、盖章。</div>
             </div>
           </li>
           <li>
             <div class="dot dot-y">✓</div>
             <div>
-              <div class="item-l">任何缺材料，都请窗口写清楚</div>
-              <div class="item-n">缺什么、由哪个机关出具、是否必须本人到场。</div>
+              <div class="item-l">去珠海户政/派出所办理接收</div>
+              <div class="item-n">重点问是否可由父母凭委托书代办、是否必须本人到场、需要哪些材料。</div>
             </div>
           </li>
           <li>
             <div class="dot dot-y">✓</div>
             <div>
-              <div class="item-l">口头反馈不能办时，先要补件口径</div>
-              <div class="item-n">最好拿书面清单；如果不方便出书面，就记录接待人、时间和原话。</div>
+              <div class="item-l">曾用名必须一起问</div>
+              <div class="item-n">无论落户、户籍证明还是出生公证材料，都确认“杨潘志树”能否备注、保留或另出证明。</div>
             </div>
           </li>
         </ul>
@@ -1530,8 +1531,9 @@
         </div>
         <p>在家复盘时再看完整流程。现场优先用「窗口」和「证明」。</p>
         <div class="action-row">
-          <button class="big-action" onclick="showTab('flow','today')">🗺️ 查看完整流程</button>
-          <button class="big-action" onclick="showTab('timeline','today')">⏱️ 查看 72 小时推进</button>
+          <button class="big-action" onclick="showTab('flow','today')">🗺️ 查看新流程</button>
+          <button class="big-action" onclick="showTab('timeline','today')">⏱️ 查看时间线</button>
+          <button class="big-action" onclick="showTab('uncle','today')">✅ 北京已完成记录</button>
         </div>
       </div>
     </div>
@@ -1585,39 +1587,22 @@
 
     <div id="scene-uncle-call" class="scene-panel">
       <div class="back-row"><button class="text-btn" onclick="backToScenes()">← 返回场景</button></div>
-      <div class="screen-title">四叔在北京</div>
-      <div class="screen-sub">此行三件事：查户口还在不在、拿集体户材料、问清下一步去哪办。</div>
+      <div class="screen-title">北京已完成记录</div>
+      <div class="screen-sub">清华和中关村派出所事项已办结，本场景不再作为行动入口。</div>
 
       <div class="card">
         <div class="card-title">
-          <div class="icon ib">📍</div>去哪里
+          <div class="icon ig">✅</div>办结情况
         </div>
-        <p><strong>北京市海淀区清华大学后勤综合服务平台问询接待处集体户口窗口</strong><br>联系人：愉悦<br>电话：13691174335<br>查户籍状态；如果还在，询问能否领取或复印常住人口登记卡本人页 + 集体户首页盖章复印件。</p>
+        <p><strong>已完成：</strong>进入清华确认户口已迁出；随后到中关村派出所办理户口迁移证；迁移证原件和打印资料已顺丰航空加急寄往珠海。</p>
+        <p><strong>当前下一步：</strong>收到原件后，爸妈去珠海户政/派出所办理接收或确认下一步。</p>
         <div class="action-row">
-          <a class="big-link" href="tel:13691174335">📞 愉悦 13691174335</a>
-        </div>
-        <p><strong>第二站：清华窗口确认的相关派出所</strong><br>如清华窗口确认需要，再去其指定派出所；若明确为中关村派出所，再去中关村派出所。</p>
-        <div class="action-row">
-          <a class="big-link" href="tel:01062554600">📞 62554600</a>
+          <button class="big-action" onclick="showTab('window'); showWindowPanel('police')">🏢 去珠海户政话术</button>
+          <button class="big-action" onclick="showTab('window'); showWindowPanel('tsinghua')">✅ 看北京记录</button>
         </div>
       </div>
 
-      <div class="copy-block">
-        <div class="copy-label">对清华户籍窗口说<button class="copy-btn" onclick="cp(this,'uncle-msg-fast')">📋 复制这段话</button></div>
-        <div class="copy-text" id="uncle-msg-fast">您好，我是潘俊丞的亲属，受他委托来咨询集体户口的事。
-
-          潘俊丞现在人在美国，家里正在珠海办理涉外出生公证。本次想向贵处咨询他的清华集体户口情况，并了解能否提供用于后续公证处审核的相关材料。
-
-          想请您帮忙确认：
-          1. 他的户口现在是否仍在清华大学集体户？
-          2. 如果仍在，是否可以提供或复印《常住人口登记卡》本人页？
-          3. 是否可以提供集体户首页盖章复印件？
-          4. 如果已经迁出，能否查询迁出时间、迁往地、迁移证编号或迁出记录？
-          5. 若贵处暂时无法在此办理，后续应去哪个派出所或户政窗口查询？
-          6. 如果方便，也请您告知目前能提供哪些材料、哪些需要到其他窗口办理，便于我们准备。
-
-          谢谢您。我们主要是想把户籍链条查清楚，后续再按公证处和公安户政要求办理。</div>
-      </div>
+      <div class="box-gold">清华现场话术已关闭，避免家人继续跑北京或继续向清华要说明。</div>
     </div>
 
     <div id="scene-prepare" class="scene-panel">
@@ -1714,9 +1699,9 @@
           </li>
         </ul>
         <div class="action-row">
+          <button class="big-action" onclick="showTab('window'); showWindowPanel('police')">🏢 珠海户政模板</button>
           <button class="big-action" onclick="showTab('window'); showWindowPanel('notary')">🏛️ 公证处模板</button>
-          <button class="big-action" onclick="showTab('window'); showWindowPanel('police')">🏢 派出所/户政模板</button>
-          <button class="big-action" onclick="showTab('window'); showWindowPanel('tsinghua')">🎓 清华户籍模板</button>
+          <button class="big-action" onclick="showTab('window'); showWindowPanel('tsinghua')">✅ 北京已完成记录</button>
         </div>
       </div>
     </div>
@@ -1725,16 +1710,16 @@
 
   <!-- ====== TAB: 窗口 ====== -->
   <div id="tab-window" class="section">
-    <div class="screen-title">你现在在哪个窗口？</div>
-    <div class="screen-sub">窗口页只放现场要说的话、要问的问题、要拿回来的纸。</div>
+    <div class="screen-title">窗口话术</div>
+    <div class="screen-sub">当前优先看“珠海户政”。清华页只保留北京已完成记录。</div>
 
     <div class="segmented">
-      <button class="seg-btn active" onclick="showWindowPanel('notary')">公证处</button>
-      <button class="seg-btn" onclick="showWindowPanel('police')">派出所/户政</button>
-      <button class="seg-btn" onclick="showWindowPanel('tsinghua')">清华户籍</button>
+      <button class="seg-btn active" onclick="showWindowPanel('police')">珠海户政</button>
+      <button class="seg-btn" onclick="showWindowPanel('notary')">公证处</button>
+      <button class="seg-btn" onclick="showWindowPanel('tsinghua')">北京已完成</button>
     </div>
 
-    <div id="window-notary" class="window-panel active">
+    <div id="window-notary" class="window-panel">
       <details class="window-stage" open>
         <summary><span class="stage-pill">阶段1</span>开场与背景</summary>
         <div class="window-stage-body">
@@ -1929,14 +1914,22 @@
       </details>
     </div>
 
-    <div id="window-police" class="window-panel">
+    <div id="window-police" class="window-panel active">
       <details class="window-stage" open>
         <summary><span class="stage-pill">阶段1</span>开场与背景</summary>
         <div class="window-stage-body">
-          <div class="box-gold"><strong>目标：</strong>派出所/户政窗口不是办出生公证，而是尽量出具可给公证处使用的户籍、关系、迁移或曾用名材料。</div>
+          <div class="box-red"><strong>当前目标：</strong>收到北京开出的《户口迁移证》原件后，在 2026年6月29日前到珠海户政/派出所办理接收或确认下一步。同步问清后续出生公证需要哪些户籍材料。</div>
           <div class="copy-block">
-            <div class="copy-label">派出所/户政窗口要问的话（现场照着说即可，无需复制留存）</div>
-            <div class="copy-text" id="police-window-script">您好，我们想咨询办理涉外出生公证所需的户籍证明材料。申请人潘俊丞现在人在美国，曾用名杨潘志树，曾迁入清华集体户。请问能否查询并出具以下任意材料：户籍成员关系证明、常住人口基本信息表、户籍登记底册、户口迁移情况说明、曾用名/更名证明或户籍档案查询结果？如果不能出具，麻烦说明不能出具原因，以及是否必须本人到场。</div>
+            <div class="copy-label">珠海户政/派出所窗口要说的话<button class="copy-btn" onclick="cp(this,'police-window-script')">📋 复制</button></div>
+            <div class="copy-text" id="police-window-script">您好，我们收到北京中关村派出所开具的《户口迁移证》，申请人潘俊丞现在人在美国，想咨询如何在珠海办理户口接收/落户，并取得后续办理涉外出生公证所需的户籍材料。
+
+请问：
+1. 这张户口迁移证是否可以在这里办理接收/落户？
+2. 申请人本人在美国，父母能否凭授权委托书、身份证复印件、护照复印件代办？
+3. 需要带哪些材料？是否需要户口本、房产或住址材料？
+4. 接收/落户后，能否提供户口页、常住人口登记信息、户籍证明或亲属关系证明给公证处？
+5. 申请人曾用名为“杨潘志树”，户籍系统里能否保留、备注或另行出具曾用名/更名证明？
+6. 如果现在不能办理，麻烦告知具体原因、下一步窗口和最晚办理期限。</div>
           </div>
         </div>
       </details>
@@ -1946,42 +1939,42 @@
         <div class="window-stage-body">
           <div class="stage-block">
             <div class="stage-block-title">
-              <div class="icon io">📦</div>能拿哪种就拿哪种
+              <div class="icon io">📦</div>本次要确认/争取的材料
             </div>
             <ul class="checklist">
               <li>
                 <div class="dot dot-y">✓</div>
                 <div>
-                  <div class="item-l">户籍成员关系证明</div>
-                  <div class="item-n">用于补强申请人与父母关系。</div>
+                  <div class="item-l">户口接收/落户办理结果</div>
+                  <div class="item-n">先确认迁移证能否接收、在哪里办、是否当天办结。</div>
                 </div>
               </li>
               <li>
                 <div class="dot dot-y">✓</div>
                 <div>
-                  <div class="item-l">常住人口基本信息表 / 户籍登记底册</div>
-                  <div class="item-n">用于补强户籍信息。</div>
+                  <div class="item-l">新户口页 / 常住人口登记信息</div>
+                  <div class="item-n">落户后优先拿能给公证处看的户籍材料。</div>
                 </div>
               </li>
               <li>
                 <div class="dot dot-y">✓</div>
                 <div>
-                  <div class="item-l">户口迁移情况说明</div>
-                  <div class="item-n">解释为什么当前户籍页暂时无法提供。</div>
+                  <div class="item-l">户籍成员关系证明 / 亲属关系证明</div>
+                  <div class="item-n">用于补强申请人与父母关系，是否能开以窗口口径为准。</div>
                 </div>
               </li>
               <li>
                 <div class="dot dot-y">✓</div>
                 <div>
-                  <div class="item-l">曾用名/更名证明</div>
-                  <div class="item-n">连接“杨潘志树”和“潘俊丞”。</div>
+                  <div class="item-l">曾用名/更名证明或系统备注</div>
+                  <div class="item-n">无论办理落户还是户籍证明，都要问“杨潘志树”能否体现。</div>
                 </div>
               </li>
               <li>
                 <div class="dot dot-q">？</div>
                 <div>
-                  <div class="item-l">无法出具证明说明</div>
-                  <div class="item-n">如果不能开证明，也请写清楚原因。</div>
+                  <div class="item-l">不能代办/不能接收的原因</div>
+                  <div class="item-n">如果卡住，问清具体原因、下一步窗口、是否有替代方式。</div>
                 </div>
               </li>
             </ul>
@@ -2000,22 +1993,22 @@
               <li>
                 <div class="dot dot-b">1</div>
                 <div>
-                  <div class="item-l">不能开具的具体原因</div>
-                  <div class="item-n">请窗口写明是“查不到”“无权限”还是“需本人到场”。</div>
+                  <div class="item-l">“必须本人”针对哪件事</div>
+                  <div class="item-n">是接收落户必须本人，还是开户籍证明必须本人？要拆开问。</div>
                 </div>
               </li>
               <li>
                 <div class="dot dot-b">2</div>
                 <div>
-                  <div class="item-l">是否有可替代材料</div>
-                  <div class="item-n">优先争取户籍成员关系、迁移记录、登记底册或状态说明。</div>
+                  <div class="item-l">迁移证快到期怎么处理</div>
+                  <div class="item-n">确认是否能先受理、是否可延期、过期后应回哪里补办。</div>
                 </div>
               </li>
               <li>
                 <div class="dot dot-b">3</div>
                 <div>
-                  <div class="item-l">本人到场要求限定到具体事项</div>
-                  <div class="item-n">让窗口写清楚哪项业务必须本人到场，避免笼统拒绝。</div>
+                  <div class="item-l">出生公证材料怎么衔接</div>
+                  <div class="item-n">问落户后可提供哪些材料给珠海公证处继续办理出生公证。</div>
                 </div>
               </li>
             </ul>
@@ -2027,249 +2020,106 @@
         <summary><span class="stage-pill">阶段4</span>留痕与带回材料</summary>
         <div class="window-stage-body">
           <div class="copy-block">
-            <div class="copy-label">派出所 / 户政窗口版说明模板<button class="copy-btn" onclick="cp(this,'window-proof-police')">📋 复制这个模板</button></div>
-            <p class="copy-hint"><strong>给爸妈：</strong>派出所说「查不到、不能开」时，把上面模板给工作人员看。用于说明查了什么、查到什么、不能开的原因。拿不到盖章件时，拍窗口答复并记下时间和接待人。</p>
-            <div class="copy-text" id="window-proof-police">户籍档案查询 / 无法出具证明说明
+            <div class="copy-label">珠海户政现场记录<button class="copy-btn" onclick="cp(this,'window-proof-police')">📋 复制</button></div>
+            <p class="copy-hint"><strong>给爸妈：</strong>不要求窗口一定写正式说明。能给回执、材料清单或窗口口径最好；不能给就自己记录并拍照。</p>
+            <div class="copy-text" id="window-proof-police">珠海户政/派出所现场记录
 
               查询对象：潘俊丞
               身份证号码：__________
               曾用名：杨潘志树
-              出生日期：1998年05月01日
+              户口迁移证编号：京 62608499
+              迁往地址：广东省珠海市香洲区凤凰北路2088号2单元701房
+              迁移证有效期：至 2026年6月29日
 
-              申请查询事项：
-              □ 户籍状态；
-              □ 户籍成员关系；
-              □ 曾用名 / 更名记录；
-              □ 户口迁移记录；
-              □ 出生登记记录 / 户籍登记底册；
-              □ 常住人口基本信息表。
-
-              代理人：__________
-              代理人与查询对象关系：父亲 / 母亲 / 受托亲属
-              代理人身份证号码：__________
-              代理材料：申请人护照/身份证复印件、代理人身份证件等。
-
-              经查询，结果如下：
-              □ 未查询到查询对象当前户籍登记信息；
-              □ 查询对象户籍已于____年__月__日迁出，迁往：__________；
-              □ 查询对象户籍档案不在本单位管理范围；
-              □ 本单位无法出具亲属关系证明，原因：__________；
-              □ 本单位无法出具曾用名/更名证明，原因：__________；
-              □ 相关业务需本人到场办理，具体事项为：__________，原因/依据：__________；
-              □ 可提供的替代材料为：__________。
-
-              备注：
-              本说明用于申请人办理涉外出生公证/境外移民材料时说明户籍材料情况。
-
-              经办人：__________
-              联系电话：__________
-              单位名称：__________
-              日期：____年__月__日
-              单位盖章：</div>
+              日期：
+              窗口/地址：
+              接待人/联系电话：
+              是否可以接收/落户：
+              是否必须本人到场：
+              父母代办需要材料：
+              还缺哪些材料：
+              曾用名能否体现/出证明：
+              落户后可给公证处的材料：
+              下一步窗口：
+              最晚办理期限：</div>
           </div>
         </div>
       </details>
     </div>
 
     <div id="window-tsinghua" class="window-panel">
-      <div class="box-blue box-blue--flush"><strong>清华这一站重点是查集体户状态和迁出线索。</strong>能拿材料就尽量拿；若此处无法提供，请向工作人员请教下一步去哪办。材料是否满足后续要求，以珠海公证处答复为准。</div>
+      <div class="box-green box-blue--flush"><strong>北京线已完成。</strong>清华确认户口已迁出；四叔已到中关村派出所办理《户口迁移证》；原件和现场资料已顺丰航空加急寄往珠海。当前不要再要求清华开材料。</div>
 
       <div class="card card--flush-top">
         <div class="card-title">
-          <div class="icon ib">🧭</div>现场判断卡
+          <div class="icon ig">✅</div>已取得结果
         </div>
         <table class="tbl">
           <tr>
-            <th>现场结果</th>
-            <th>下一步</th>
+            <th>事项</th>
+            <th>结果</th>
           </tr>
           <tr>
-            <td>户口还在清华</td>
-            <td>拿本人页 + 集体户首页盖章复印件，然后给珠海公证处。</td>
+            <td>清华户籍状态</td>
+            <td>户口已从清华迁出。</td>
           </tr>
           <tr>
-            <td>户口已迁出</td>
-            <td>问迁出时间、迁往地、迁移证编号，然后去对应派出所/户政。</td>
+            <td>北京派出所</td>
+            <td>已到中关村派出所办理户口迁移证。</td>
           </tr>
           <tr>
-            <td>此处暂无法提供材料</td>
-            <td>问原因 + 下一站；能在清华封头纸上手写几项最好，不能写就记录口径。</td>
+            <td>快递</td>
+            <td>户口迁移证原件和打印资料已寄往珠海。</td>
           </tr>
           <tr>
-            <td>清华说必须本人</td>
-            <td>问是否接受授权委托书；不接受就问替代方式。</td>
-          </tr>
-          <tr>
-            <td>清华说去派出所</td>
-            <td>问清具体派出所、事项名称、材料清单。</td>
+            <td>下一步</td>
+            <td>收到原件后，在 2026年6月29日前去珠海户政/派出所办理接收。</td>
           </tr>
         </table>
       </div>
 
-      <details class="window-stage" open>
-        <summary><span class="stage-pill">阶段1</span>开场与背景</summary>
-        <div class="window-stage-body">
-          <div class="box-gold"><strong>目标：</strong>确认潘俊丞的集体户状态。能拿材料就拿；拿不到就问清下一站。</div>
-          <p><strong>北京市海淀区清华大学后勤综合服务平台问询接待处集体户口窗口</strong><br>联系人：愉悦<br>电话：13691174335</p>
-          <div class="action-row">
-            <a class="big-link" href="tel:13691174335">📞 愉悦 13691174335</a>
-          </div>
-          <div class="copy-block">
-            <div class="copy-label">对清华户籍窗口说<button class="copy-btn" onclick="cp(this,'uncle-msg-window')">📋 复制这段话</button></div>
-            <div class="copy-text" id="uncle-msg-window">您好，我是潘俊丞的亲属，受他本人委托来咨询清华集体户口材料。
-
-              潘俊丞现在人在美国，家里正在珠海办理涉外出生公证。本次想向贵处咨询他的清华集体户口情况，并了解能否提供用于后续公证处审核的相关材料。
-
-              想请您帮忙确认：
-
-              1. 他的户口现在是否仍在清华大学集体户？
-              2. 如果仍在，是否可以提供或复印《常住人口登记卡》本人页？
-              3. 是否可以提供集体户首页盖章复印件？
-              4. 如果已经迁出，能否查询迁出时间、迁往地、迁移证编号或迁出记录？
-              5. 若贵处暂时无法在此办理，后续应去哪个派出所或户政窗口查询？
-              6. 如果方便，也请您告知目前能提供哪些材料、哪些需要到其他窗口办理，便于我们准备。
-
-              谢谢您。我们主要是想把户籍链条查清楚，后续再按公证处和公安户政要求办理。</div>
-          </div>
+      <div class="card">
+        <div class="card-title">
+          <div class="icon ib">📄</div>户口迁移证信息摘录
         </div>
-      </details>
+        <table class="tbl">
+          <tr>
+            <th>字段</th>
+            <th>内容</th>
+          </tr>
+          <tr>
+            <td>姓名</td>
+            <td>潘俊丞</td>
+          </tr>
+          <tr>
+            <td>曾用名</td>
+            <td>杨潘志树</td>
+          </tr>
+          <tr>
+            <td>迁移原因</td>
+            <td>大中专学生毕业</td>
+          </tr>
+          <tr>
+            <td>原住址</td>
+            <td>北京市海淀区清华园1号170901（城镇）</td>
+          </tr>
+          <tr>
+            <td>迁往地址</td>
+            <td>广东省珠海市香洲区凤凰北路2088号2单元701房</td>
+          </tr>
+          <tr>
+            <td>迁移证编号</td>
+            <td>京 62608499</td>
+          </tr>
+          <tr>
+            <td>有效期</td>
+            <td>至 2026年6月29日</td>
+          </tr>
+        </table>
+        <p class="note">以上为图片摘录，办理时以纸质原件为准。</p>
+      </div>
 
-      <details class="window-stage" open>
-        <summary><span class="stage-pill">阶段2</span>现场要问</summary>
-        <div class="window-stage-body">
-          <div class="stage-block">
-            <div class="stage-block-title">
-              <div class="icon ig">A</div>如果户口还在清华
-            </div>
-            <ol>
-              <li>能否复印《常住人口登记卡》本人页？</li>
-              <li>能否提供集体户首页盖章复印件？</li>
-              <li>是否需要潘俊丞本人授权委托书、身份证复印件、护照复印件？</li>
-              <li>今天能不能取？如果不能，什么时候、在哪里取？</li>
-            </ol>
-          </div>
-          <div class="stage-block">
-            <div class="stage-block-title">
-              <div class="icon io">B</div>如果户口已经迁出
-            </div>
-            <ol>
-              <li>迁出时间是什么时候？</li>
-              <li>迁往哪里？</li>
-              <li>户口迁移证编号是什么？</li>
-              <li>迁出记录能否打印或盖章？</li>
-              <li>后续应该去哪个派出所/户政窗口查？</li>
-              <li>需要带哪些材料？</li>
-            </ol>
-          </div>
-          <div class="stage-block">
-            <div class="stage-block-title">
-              <div class="icon ir">C</div>若此处查不到或暂无法提供材料
-            </div>
-            <ol>
-              <li>是因为户口不在清华，还是因为窗口权限不能查？</li>
-              <li>是否可以告知下一步应该去哪个派出所/户政窗口？</li>
-              <li>如果方便，是否可以在清华封头纸或便签上手写几项关键信息？不能写也没关系，我们现场记录。</li>
-              <li>如果不能手写，能否口头告知原因，我们现场记录？</li>
-            </ol>
-          </div>
-        </div>
-      </details>
-
-      <details class="window-stage" open>
-        <summary><span class="stage-pill">阶段3</span>卡住时应对</summary>
-        <div class="window-stage-body">
-          <div class="stage-block">
-            <div class="stage-block-title">
-              <div class="icon ir">!</div>如果窗口说“不能开”
-            </div>
-            <div class="copy-text">明白。那请问是清华没有这个材料，还是这个窗口不能出？
-              如果我们后续要办涉外出生公证，应该去哪个派出所或户政部门查询户籍记录？
-              如果方便，能否在清华封头纸或便签上手写几项关键信息？不能写也没关系，请告诉我们具体窗口名称和办理事项。</div>
-          </div>
-          <div class="stage-block">
-            <div class="stage-block-title">
-              <div class="icon ib">→</div>如果窗口说“去派出所”
-            </div>
-            <div class="copy-text">请问具体是哪个派出所？
-              办理事项应该怎么说？
-              是查询户籍状态、迁出记录、户籍登记记录，还是开具户籍证明？
-              需要带哪些材料？</div>
-          </div>
-          <div class="stage-block">
-            <div class="stage-block-title">
-              <div class="icon io">人</div>如果窗口说“必须本人来”
-            </div>
-            <div class="copy-text">申请人现在长期在美国，是否可以凭中文授权委托书、身份证复印件、护照复印件由亲属代办？
-              如果不能代办，是否可以说明原因，或告知有没有线上/邮寄/公证委托方式？</div>
-          </div>
-        </div>
-      </details>
-
-      <details class="window-stage">
-        <summary><span class="stage-pill">阶段4</span>留痕与带回材料</summary>
-        <div class="window-stage-body">
-          <table class="tbl">
-            <tr>
-              <th>类型</th>
-              <th>要拿什么</th>
-            </tr>
-            <tr>
-              <td>最好结果</td>
-              <td>常住人口登记卡本人页复印件 + 集体户首页盖章复印件</td>
-            </tr>
-            <tr>
-              <td>如果已迁出</td>
-              <td>迁出时间、迁往地、迁移证编号、迁出记录</td>
-            </tr>
-            <tr>
-              <td>如果需要派出所</td>
-              <td>派出所名称、地址、窗口名称、办理事项、材料清单</td>
-            </tr>
-            <tr>
-              <td>如果不给材料</td>
-              <td>记录原因、接待窗口、接待人、日期时间</td>
-            </tr>
-            <tr>
-              <td>如果有纸质材料</td>
-              <td>拍完整照片，包含抬头、正文、盖章、日期</td>
-            </tr>
-          </table>
-          <div class="copy-block">
-            <div class="copy-label">现场记录 / 封头纸手写要点<button class="copy-btn" onclick="cp(this,'window-proof-tsinghua-short')">📋 复制</button></div>
-            <p class="copy-hint"><strong>给四叔：</strong>可先说明是为后续公证准备、查询集体户口。若窗口愿意，可在清华封头纸或便签上手写几项关键信息；能盖章最好，不能盖章也请礼貌记下对方说明。</p>
-            <div class="copy-text" id="window-proof-tsinghua-short">清华集体户口现场记录 / 封头纸手写要点
-
-              用途：供家属向公证处或公安户政部门说明本次查询经过。如窗口不便出具正式证明，现场记录或手写说明亦可。
-
-              如果窗口愿意写在清华封头纸或便签上，尽量写清以下几项即可；如果不方便写，由受托人自己现场记录也可以：
-
-              1. 查询对象：潘俊丞，身份证号：__________
-              2. 查询日期：____年__月__日
-              3. 查询地点/窗口：__________
-              4. 接待人/联系电话：__________
-              5. 查询结果：
-              □ 户口仍在清华大学集体户
-              □ 户口已迁出清华大学集体户
-              □ 当前窗口暂无法确认
-              6. 如已迁出：
-              迁出时间：__________
-              迁往地：__________
-              迁移证编号：__________
-              7. 清华可提供材料：
-              □ 《常住人口登记卡》本人页复印件
-              □ 集体户首页盖章复印件
-              □ 迁出记录/迁移信息
-              □ 其他：__________
-              8. 清华不能提供的材料及原因：__________
-              9. 建议下一步去哪里查：
-              派出所/户政部门：__________
-              办理事项：__________
-              需带材料：__________
-
-              备注：可以盖章就盖章；不能盖章就不要求。不能手写也没关系，由受托人现场记录窗口口径，并拍摄窗口信息或已取得材料。</div>
-          </div>
-        </div>
-      </details>
+      <div class="box-gold">清华现场话术和手写记录模板已关闭。后续只需要保留迁移证原件、北京现场打印资料、顺丰记录和本页摘录；当前行动入口是“珠海户政”。</div>
     </div>
   </div>
 
@@ -2289,7 +2139,50 @@
       </div>
     </div>
 
-    <div class="box-green">✅ 现有材料已经比较完整，电子版已备齐。曾用名统一为 <strong>杨潘志树</strong> → 现用名 <strong>潘俊丞</strong>。户口簿/户籍材料仍是常规审核材料；下一步重点是确认本人当前户籍页暂时无法提供时，公证处接受哪些替代或补充材料。是否正式受理，以承办公证员审核为准。</div>
+    <div class="box-green">✅ 北京户籍链条已查清，户口迁移证已办好并寄往珠海。材料页现在优先服务“珠海接收/落户 + 出生公证补件”。曾用名统一为 <strong>杨潘志树</strong> → 现用名 <strong>潘俊丞</strong>。</div>
+
+    <div class="card">
+      <div class="card-title">
+        <div class="icon ir">!</div>当前 P0：珠海接收/落户
+      </div>
+      <ul class="checklist">
+        <li>
+          <div class="dot dot-q">？</div>
+          <div>
+            <div class="item-l">户口迁移证原件</div>
+            <div class="item-n">已由四叔顺丰航空加急寄出；收到后先拍完整照片，办理时带原件。</div>
+          </div>
+        </li>
+        <li>
+          <div class="dot dot-q">？</div>
+          <div>
+            <div class="item-l">顺丰物流 / 签收记录</div>
+            <div class="item-n">保存运单和签收截图，证明原件流转。</div>
+          </div>
+        </li>
+        <li>
+          <div class="dot dot-q">？</div>
+          <div>
+            <div class="item-l">父母代办材料</div>
+            <div class="item-n">父母身份证、潘俊丞授权委托书、身份证复印件、护照复印件；是否还需其他材料以珠海窗口为准。</div>
+          </div>
+        </li>
+        <li>
+          <div class="dot dot-q">？</div>
+          <div>
+            <div class="item-l">珠海户口本 / 住址材料</div>
+            <div class="item-n">家庭户口本、住址或房产相关材料，去窗口前先电话确认。</div>
+          </div>
+        </li>
+        <li>
+          <div class="dot dot-q">？</div>
+          <div>
+            <div class="item-l">曾用名处理口径</div>
+            <div class="item-n">办理接收、户籍证明或出生公证材料时，都要确认“杨潘志树”能否保留、备注或另出证明。</div>
+          </div>
+        </li>
+      </ul>
+    </div>
 
     <div class="card">
       <div class="card-title">
@@ -2339,10 +2232,10 @@
           </div>
         </li>
         <li>
-          <div class="dot dot-q">？</div>
+          <div class="dot dot-y">✓</div>
           <div>
-            <div class="item-l">清华集体户口系统：当前未查到记录</div>
-            <div class="item-n">需由清华户籍窗口或派出所人工确认户籍位置；不能仅凭系统为空下结论。</div>
+            <div class="item-l">户口迁移证信息</div>
+            <div class="item-n">清华已确认迁出，中关村派出所已办理迁移证；当前以迁移证原件为准。</div>
           </div>
         </li>
       </ul>
@@ -2435,22 +2328,22 @@
         <li>
           <div class="dot dot-q">？</div>
           <div>
-            <div class="item-l">潘俊丞户口当前位置</div>
-            <div class="item-n">需由清华户籍窗口、清华窗口确认的派出所或珠海户政窗口进一步确认。</div>
+            <div class="item-l">珠海是否已完成户口接收/落户</div>
+            <div class="item-n">收到迁移证原件后去珠海户政确认；完成后再拿户籍页或可用于出生公证的户籍材料。</div>
           </div>
         </li>
         <li>
           <div class="dot dot-q">？</div>
           <div>
-            <div class="item-l">珠海派出所：户籍成员关系证明</div>
-            <div class="item-n">户籍页暂时无法提供时，请公证处确认能否作为替代或补充材料。</div>
+            <div class="item-l">落户后可开具哪些公证辅助材料</div>
+            <div class="item-n">户口页、常住人口登记信息、户籍成员关系证明、曾用名证明，能拿哪种就记录哪种。</div>
           </div>
         </li>
         <li>
           <div class="dot dot-q">？</div>
           <div>
-            <div class="item-l">清华：常住人口登记卡本人页（四叔查）</div>
-            <div class="item-n">若户口仍在清华集体户，请四叔询问能否领取或复印。</div>
+            <div class="item-l">清华/中关村北京材料</div>
+            <div class="item-n">已完成，保留迁移证和现场打印资料即可；不再作为待跑事项。</div>
           </div>
         </li>
         <li>
@@ -2470,10 +2363,10 @@
   <!-- ====== TAB: 流程图 ====== -->
   <div id="tab-flow" class="section">
 
-    <div class="box-blue">💡 按这个流程图一步步走。现场遇到问题时，回到「今天」选择对应场景。</div>
+    <div class="box-blue">💡 新流程：北京已完成，当前先处理珠海户口接收，再回到出生公证。</div>
     <div class="jump-row">
       <button class="jump-link" onclick="goTo('today')">今天</button>
-      <button class="jump-link" onclick="goTo('uncle')">四叔在北京</button>
+      <button class="jump-link" onclick="goTo('window','police')">珠海户政</button>
       <button class="jump-link" onclick="goTo('window','notary','notary-scripts')">公证处话术</button>
       <button class="jump-link" onclick="goTo('materials')">材料</button>
       <button class="jump-link" onclick="goTo('backup')">证明/备用方案</button>
@@ -2482,44 +2375,44 @@
     <div class="flow-wrap">
       <div class="flow">
 
-        <div class="fnode fnode-start fnode-jump" onclick="goTo('window','notary')">🎯 目标：拿到珠海出生公证</div>
+        <div class="fnode fnode-start fnode-jump" onclick="goTo('window','tsinghua')">✅ 北京已完成：迁移证已办好</div>
         <div class="farrow">
           <div class="farrow-line"></div>
           <div class="farrow-head"></div>
         </div>
 
-        <div class="fnode fnode-action fnode-jump" onclick="goTo('window','notary')">提交现有材料做预审<br><span class="fnode-sub">护照+身份证扫描件+父母证件+出生材料+照片</span></div>
+        <div class="fnode fnode-action fnode-jump" onclick="goTo('window','police')">收到迁移证原件<br><span class="fnode-sub">先拍照留档，注意 2026-06-29 前处理</span></div>
         <div class="farrow">
           <div class="farrow-line"></div>
           <div class="farrow-head"></div>
         </div>
 
-        <div class="fnode fnode-decision fnode-jump" onclick="goTo('window','notary')">🔀 公证处是否愿意预审？</div>
+        <div class="fnode fnode-decision fnode-jump" onclick="goTo('window','police')">🔀 珠海户政能否接收/落户？</div>
 
         <div class="flow-split">
           <!-- 左：愿意 -->
           <div class="flow-split-col">
-            <span class="fbranch-label fl-yes">✓ 愿意</span>
+            <span class="fbranch-label fl-yes">✓ 能接收</span>
             <div class="farrow">
               <div class="farrow-line"></div>
               <div class="farrow-head"></div>
             </div>
-            <div class="fnode fnode-decision compact-node">缺什么？</div>
+            <div class="fnode fnode-action compact-node fnode-jump" onclick="goTo('window','police')">办理接收/落户</div>
             <div class="farrow">
               <div class="farrow-line"></div>
               <div class="farrow-head"></div>
             </div>
-            <div class="fnode fnode-action compact-node fnode-jump" onclick="goTo('window','tsinghua')">补清华/派出所<br>户籍材料</div>
+            <div class="fnode fnode-action compact-node fnode-jump" onclick="goTo('window','police')">拿户口页/户籍材料</div>
             <div class="farrow">
               <div class="farrow-line"></div>
               <div class="farrow-head"></div>
             </div>
-            <div class="fnode fnode-action compact-node fnode-jump" onclick="goTo('window','police')">补曾用名/<br>亲属关系证明</div>
+            <div class="fnode fnode-action compact-node fnode-jump" onclick="goTo('window','police')">确认曾用名<br>是否保留/出证明</div>
             <div class="farrow">
               <div class="farrow-line"></div>
               <div class="farrow-head"></div>
             </div>
-            <div class="fnode fnode-decision compact-node">能否受理？</div>
+            <div class="fnode fnode-decision compact-node">公证处能否受理？</div>
             <div class="flow-sub-split">
               <div class="flow-sub-col">
                 <span class="fbranch-label fl-yes">能</span>
@@ -2542,30 +2435,30 @@
 
           <!-- 右：口头坚持 -->
           <div class="flow-split-col">
-            <span class="fbranch-label fl-no">口头反馈暂不能受理</span>
+            <span class="fbranch-label fl-no">暂不能接收</span>
             <div class="farrow">
               <div class="farrow-line"></div>
               <div class="farrow-head"></div>
             </div>
-            <div class="fnode fnode-warn compact-node fnode-jump" onclick="goTo('window','notary','notary-scripts')">出示依据<br>温和确认<br>见公证处话术</div>
+            <div class="fnode fnode-warn compact-node fnode-jump" onclick="goTo('window','police')">问清原因<br>本人到场？缺材料？</div>
             <div class="farrow">
               <div class="farrow-line"></div>
               <div class="farrow-head"></div>
             </div>
-            <div class="fnode fnode-action compact-node fnode-jump" onclick="goTo('window','notary')">请求承办公证员<br>进一步确认</div>
+            <div class="fnode fnode-action compact-node fnode-jump" onclick="goTo('window','police')">问替代方式<br>委托/延期/回原窗口</div>
             <div class="farrow">
               <div class="farrow-line"></div>
               <div class="farrow-head"></div>
             </div>
-            <div class="fnode fnode-decision compact-node">态度改变？</div>
+            <div class="fnode fnode-decision compact-node">是否给明确下一步？</div>
             <div class="flow-sub-split">
               <div class="flow-sub-col">
-                <span class="fbranch-label fl-yes">改了</span>
+                <span class="fbranch-label fl-yes">给了</span>
                 <div class="farrow">
                   <div class="farrow-line"></div>
                   <div class="farrow-head"></div>
                 </div>
-                <div class="fnode fnode-good compact-node fnode-jump" onclick="goTo('window','notary')">重回左侧<br>预审流程</div>
+                <div class="fnode fnode-good compact-node fnode-jump" onclick="goTo('window','police')">按清单补齐<br>再办接收</div>
               </div>
               <div class="flow-sub-col">
                 <span class="fbranch-label fl-no">仍不能</span>
@@ -2573,19 +2466,19 @@
                   <div class="farrow-line"></div>
                   <div class="farrow-head"></div>
                 </div>
-                <div class="fnode fnode-warn compact-node fnode-jump" onclick="goTo('window','notary')">请求补件/不予受理<br>原因说明</div>
+                <div class="fnode fnode-warn compact-node fnode-jump" onclick="goTo('window','police')">记录窗口口径<br>拍照发群里</div>
               </div>
             </div>
           </div>
         </div>
 
         <div class="flow-spacer"></div>
-        <div class="fnode fnode-end-r fnode-jump" onclick="goTo('backup')">🆘 如72小时内仍无法受理 → 整理备用材料包给律师评估（见「备用方案」）</div>
+        <div class="fnode fnode-end-r fnode-jump" onclick="goTo('backup')">🆘 若出生公证仍无法受理 → 再整理备用材料包评估</div>
 
       </div>
     </div>
 
-    <div class="box-gold">⚠️ <strong>北京四叔线</strong>：目标是「查状态、拿证明」，不是「默认办落户」。<span class="jump-link" onclick="goTo('uncle')">去“四叔在北京”</span></div>
+    <div class="box-gold">⚠️ <strong>北京四叔线已关闭</strong>：仅保留结果记录。当前行动入口是 <span class="jump-link" onclick="goTo('window','police')">珠海户政</span>。</div>
 
     <h3>📌 核心原则</h3>
     <div class="card">
@@ -2620,7 +2513,7 @@
         <li>
           <div class="dot dot-n">✗</div>
           <div>
-            <div class="item-l">不要把出生公证扩大成"先落户+换身份证"</div>
+            <div class="item-l">不要把迁移证接收扩大成换身份证或其他无关事项</div>
           </div>
         </li>
       </ul>
@@ -2631,10 +2524,45 @@
   <!-- ====== TAB: 情况 ====== -->
   <div id="tab-scenarios" class="section">
 
-    <div class="box-blue">点击展开每种情况，查看具体操作步骤。</div>
+    <div class="box-blue">当前主要情形已变成：已拿到户口迁移证，下一步办理珠海接收/落户。旧情形保留为历史参考。</div>
+
+    <div class="scenario s4 open" onclick="toggleSc(this)">
+      <div class="sc-head"><span>🔴 当前情形：迁移证已办好，珠海接收/落户</span><span class="sc-arrow">▼</span></div>
+      <div class="sc-body">
+        <div class="box-red">迁移证有效期至 2026年6月29日。收到原件后先拍照留档，再尽快去珠海户政/派出所。</div>
+        <div class="step">
+          <div class="sn">1</div>
+          <div>
+            <div class="st">带迁移证原件去珠海窗口</div>
+            <div class="sd">同时带父母身份证、户口本、委托书、潘俊丞身份证/护照复印件。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="sn">2</div>
+          <div>
+            <div class="st">问是否可以父母代办</div>
+            <div class="sd">如果说必须本人，追问是落户必须本人，还是开户籍证明必须本人。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="sn">3</div>
+          <div>
+            <div class="st">曾用名一起处理</div>
+            <div class="sd">确认“杨潘志树”能否在系统保留、备注，或另开曾用名/更名证明。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="sn">4</div>
+          <div>
+            <div class="st">落户后回公证处</div>
+            <div class="sd">带新户口页或户政材料，请公证处确认出生公证能否受理。</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- 情形一 -->
-    <div class="scenario s1 open" onclick="toggleSc(this)">
+    <div class="scenario s1" onclick="toggleSc(this)">
       <div class="sc-head"><span>🟢 情形一：公证处愿意按替代材料预审</span><span class="sc-arrow">▼</span></div>
       <div class="sc-body">
         <div class="box-green">这是最顺利的路径，按窗口补件口径推进。</div>
@@ -2698,8 +2626,8 @@
         <div class="step">
           <div class="sn">3</div>
           <div>
-            <div class="st">同步安排四叔在北京查状态并取材料</div>
-            <div class="sd">见「今天」里的“四叔在北京”</div>
+            <div class="st">北京查询已完成</div>
+            <div class="sd">目前不再安排北京取材料；如需复盘，查看“北京已完成记录”。</div>
           </div>
         </div>
         <div class="step">
@@ -2798,7 +2726,7 @@
           <div class="sn">3</div>
           <div>
             <div class="st">把说明或现场口径拍照发给潘俊丞</div>
-            <div class="sd">用于后续补件判断，必要时再给律师评估。</div>
+            <div class="sd">用于后续补件判断，必要时再给办理长期工签的专业人士评估。</div>
           </div>
         </div>
       </div>
@@ -2838,11 +2766,11 @@
   <!-- ====== TAB: 四叔 ====== -->
   <div id="tab-uncle" class="section">
 
-    <div class="box-blue">✅ 四叔此行三件事：<strong>查户口还在不在 + 拿集体户材料 + 问下一站去哪</strong>。出生公证在珠海办理；清华窗口主要协助查询集体户口、提供相关材料。</div>
+    <div class="box-green">✅ 北京线已完成：清华确认户口已迁出；中关村派出所已办理户口迁移证；四叔已把迁移证原件和打印资料顺丰航空加急寄往珠海。本页只作历史记录。</div>
 
     <div class="card">
       <div class="card-title">
-        <div class="icon ib">📍</div>去哪里
+        <div class="icon ib">📍</div>已去过哪里
       </div>
       <table class="tbl">
         <tr>
@@ -2851,54 +2779,54 @@
         </tr>
         <tr>
           <td><strong>北京市海淀区清华大学后勤综合服务平台</strong><br>问询接待处集体户口窗口<br>联系人：愉悦 ☎ 13691174335</td>
-          <td>查户籍状态；如果还在，询问能否领取或复印常住人口登记卡本人页 + 集体户首页盖章复印件</td>
+          <td>已确认户口从清华迁出。</td>
         </tr>
         <tr>
-          <td><strong>第二站：清华窗口确认的相关派出所</strong><br>可能是中关村派出所，但以清华户籍窗口现场确认口径为准</td>
-          <td>按清华窗口指引，咨询户籍证明、户籍登记记录、常住人口基本信息表、迁移证或迁移情况说明</td>
+          <td><strong>中关村派出所</strong></td>
+          <td>已办理《户口迁移证》并寄往珠海。</td>
         </tr>
       </table>
     </div>
 
     <div class="card">
       <div class="card-title">
-        <div class="icon io">❓</div>要问的6个问题
+        <div class="icon io">📄</div>已办结论
       </div>
       <ul class="checklist">
         <li>
           <div class="dot dot-b">1</div>
           <div>
-            <div class="item-l">潘俊丞的户口现在还在清华集体户吗？</div>
+            <div class="item-l">户口已从清华迁出。</div>
           </div>
         </li>
         <li>
           <div class="dot dot-b">2</div>
           <div>
-            <div class="item-l">如果不在，何时迁出？迁往哪里？</div>
+            <div class="item-l">已取得户口迁移证，迁往珠海家庭住址。</div>
           </div>
         </li>
         <li>
           <div class="dot dot-b">3</div>
           <div>
-            <div class="item-l">如果还在，能否领取或复印常住人口登记卡本人页 + 集体户首页盖章复印件？</div>
+            <div class="item-l">户口迁移证有效期至 2026年6月29日。</div>
           </div>
         </li>
         <li>
           <div class="dot dot-b">4</div>
           <div>
-            <div class="item-l">若贵处暂时无法在此办理，后续应去哪个派出所或户政窗口查询？</div>
+            <div class="item-l">原件和现场资料已寄往珠海。</div>
           </div>
         </li>
         <li>
           <div class="dot dot-b">5</div>
           <div>
-            <div class="item-l">如果已迁出，是什么时候迁出、迁往哪里、是否有户口迁移证或迁移记录？</div>
+            <div class="item-l">下一步由珠海户政/派出所办理接收或确认替代路径。</div>
           </div>
         </li>
         <li>
           <div class="dot dot-b">6</div>
           <div>
-            <div class="item-l">目前能提供哪些材料、哪些需要到其他窗口办理？如暂时无法提供，原因是什么？</div>
+            <div class="item-l">曾用名“杨潘志树”已体现在迁移证上，后续窗口仍要继续确认能否保留或出证明。</div>
           </div>
         </li>
       </ul>
@@ -2906,7 +2834,7 @@
 
     <div class="card">
       <div class="card-title">
-        <div class="icon io">📦</div>要带回来的材料
+        <div class="icon io">📦</div>已带回/寄出的材料
       </div>
       <table class="tbl">
         <tr>
@@ -2916,53 +2844,38 @@
         </tr>
         <tr>
           <td><span class="tag tag-r">P0</span></td>
-          <td>现场记录 / 口头结论</td>
-          <td>记录户口在不在、能给什么、下一站去哪</td>
+          <td>户口迁移证原件</td>
+          <td>已寄往珠海</td>
         </tr>
         <tr>
           <td><span class="tag tag-r">P0</span></td>
-          <td>常住人口登记卡本人页</td>
-          <td>户口还在清华</td>
+          <td>清华现场打印资料</td>
+          <td>已随迁移证寄出</td>
         </tr>
         <tr>
           <td><span class="tag tag-r">P0</span></td>
-          <td>集体户首页盖章复印件</td>
-          <td>配套登记卡</td>
+          <td>顺丰物流记录</td>
+          <td>保存截图和签收记录</td>
         </tr>
         <tr>
           <td><span class="tag tag-r">P0</span></td>
-          <td>户籍迁移证 / 迁移情况说明</td>
-          <td>如果已迁出</td>
+          <td>迁移证照片</td>
+          <td>收到原件后重新拍完整照片留档</td>
         </tr>
         <tr>
           <td><span class="tag tag-o">P1</span></td>
-          <td>下一站窗口信息</td>
-          <td>派出所/户政部门名称、地址、事项、材料清单</td>
+          <td>下一站</td>
+          <td>珠海户政/派出所</td>
         </tr>
         <tr>
           <td><span class="tag tag-o">P1</span></td>
-          <td>窗口无法办理说明 / 材料清单</td>
-          <td>不能开证明或不能代办时，尽量不要空手回来</td>
+          <td>期限提醒</td>
+          <td>2026年6月29日前处理迁移证</td>
         </tr>
       </table>
     </div>
 
-    <div class="copy-block">
-      <div class="copy-label">📱 对清华户籍窗口说（可直接复制）<button class="copy-btn" onclick="cp(this,'uncle-msg')">复制</button></div>
-      <div class="copy-text" id="uncle-msg">您好，我是潘俊丞的亲属，受他委托来咨询集体户口的事。
-
-        潘俊丞现在人在美国，家里正在珠海办理涉外出生公证。本次想向贵处咨询他的清华集体户口情况，并了解能否提供用于后续公证处审核的相关材料。
-
-        想请您帮忙确认：
-        1. 他的户口现在是否仍在清华大学集体户？
-        2. 如果仍在，是否可以提供或复印《常住人口登记卡》本人页？
-        3. 是否可以提供集体户首页盖章复印件？
-        4. 如果已经迁出，能否查询迁出时间、迁往地、迁移证编号或迁出记录？
-        5. 若贵处暂时无法在此办理，后续应去哪个派出所或户政窗口查询？
-        6. 如果方便，也请您告知目前能提供哪些材料、哪些需要到其他窗口办理，便于我们准备。
-
-        谢谢您。我们主要是想把户籍链条查清楚，后续再按公证处和公安户政要求办理。</div>
-    </div>
+    <div class="box-gold">清华原话术已关闭。后续如要查北京过程，回「窗口 → 清华户籍」查看已完成记录；当前行动入口请用「窗口 → 派出所/户政」。</div>
 
   </div>
 
@@ -2979,22 +2892,22 @@
     </div>
 
     <div class="copy-block">
-      <div class="copy-label">📋 给公证处预审用的 6 个确认问题<button class="copy-btn" onclick="cp(this,'qlist')">复制</button></div>
+      <div class="copy-label">📋 拿到迁移证后的公证处确认问题<button class="copy-btn" onclick="cp(this,'qlist')">复制</button></div>
       <div class="copy-text" id="qlist">您好，我们想先请您帮忙预审一下材料，确认是否可以受理或需要补哪些材料。
 
-        我儿子潘俊丞，2021年毕业于清华大学，现居美国，由我们父母代办出生公证，用于长期工签材料办理。我们已准备护照复印件、身份证扫描件、父母身份证户口本结婚证、出生医学证明、独生子女证、出生记录和照片。
+        我儿子潘俊丞，2021年毕业于清华大学，现居美国，由我们父母代办出生公证，用于长期工签材料办理。北京方面已经确认户口从清华迁出，并开具了户口迁移证，迁往珠海家庭住址。我们正在珠海办理户口接收/落户。
 
         想请您帮忙预审并确认 6 个问题：
 
         1. 他人在国外，能否用护照复印件和身份证扫描件作为申请人身份材料？
 
-        2. 户口簿/户籍材料是常规审核材料。如果本人当前户籍页暂时无法提供，能否用派出所出具的户籍成员关系证明、常住人口基本信息表、户籍登记底册、人事档案、出生医学证明、独生子女证或出生记录作为替代或补充材料？
+        2. 户口迁移证是否可以作为户籍链条辅助材料先用于预审？
 
-        3. 如果清华能出具《常住人口登记卡》本人页和集体户首页盖章复印件，是否可以作为集体户籍材料？
+        3. 如果珠海完成落户，是否提供新的户口页即可？还需要常住人口登记信息、户籍成员关系证明或其他户政材料吗？
 
-        4. 如果户口已从清华迁出，户口迁移证、迁移记录或迁移情况说明是否可以作为辅助材料？
+        4. 如果珠海户政暂时不能代办落户，迁移证 + 出生医学证明 + 独生子女证 + 父母户口本结婚证能否先预审？
 
-        5. 曾用名"杨潘志树"需要由哪个机关出具证明才可以使用？派出所、档案部门、学校材料或旧户口本是否可以？
+        5. 曾用名“杨潘志树”已经体现在户口迁移证上，是否还需要户政另行出具曾用名/更名证明？
 
         6. 如果目前材料还不足，麻烦给我们一份补件清单，写清楚缺哪些材料、各由哪个机关出具、是否必须本人到场。</div>
     </div>
@@ -3005,9 +2918,9 @@
 
         我儿子潘俊丞，出生在珠海，2021年毕业于清华大学，现在人在美国，需要办出生公证用于长期工签材料办理。
 
-        他的户籍当年迁到了清华集体户，现在状态不确定。我们已经有他的护照复印件、父母身份证户口本结婚证、出生医学证明、独生子女证、出生记录。
+        他的户籍当年迁到了清华集体户，现在北京已经开出户口迁移证，迁往珠海家庭住址。我们正在办理珠海接收/落户。我们已经有他的护照复印件、父母身份证户口本结婚证、出生医学证明、独生子女证、出生记录。
 
-        请问这些材料能否先做预审？如果目前材料还不足，麻烦告知还需要补什么材料、由哪个机关出具、是否必须本人到场。</div>
+        请问迁移证和现有出生材料能否先做预审？如果目前材料还不足，麻烦告知还需要补什么材料、由哪个机关出具、是否必须本人到场。</div>
     </div>
 
   </div>
@@ -3015,61 +2928,61 @@
   <!-- ====== TAB: 时间线 ====== -->
   <div id="tab-timeline" class="section">
 
-    <div class="box-blue">📅 按这个节奏推进，72小时内争取有明确受理结论。</div>
+    <div class="box-blue">📅 北京阶段已完成。现在按“收迁移证 → 珠海接收/落户 → 出生公证补件”推进。</div>
 
     <div class="timeline">
       <div class="tl-item">
         <div class="tl-dot tl-dot-r"></div>
-        <div class="tl-time tl-time-r">今天（第一天）</div>
+        <div class="tl-time tl-time-g">已完成：北京线</div>
         <div class="tl-row">
-          <div class="tl-who">爸/妈</div>
-          <div>去珠海公证处预审，拿到明确补件口径（半天）</div>
-        </div>
-        <div class="tl-row">
-          <div class="tl-who">爸/妈</div>
-          <div>核实照片：打印大一寸和2寸各一套</div>
+          <div class="tl-who">四叔</div>
+          <div>进入清华，确认潘俊丞户口已从清华迁出。</div>
         </div>
         <div class="tl-row">
           <div class="tl-who">四叔</div>
-          <div>如已到北京：去清华户籍窗口查状态，并可按窗口指引办理户口迁移（迁入/迁出）相关事项</div>
+          <div>前往中关村派出所，办理《户口迁移证》。</div>
         </div>
         <div class="tl-row">
-          <div class="tl-who">潘俊丞</div>
-          <div>确认身份证件和照片材料已发出</div>
+          <div class="tl-who">四叔</div>
+          <div>迁移证和早上打印资料已顺丰航空加急寄往珠海。</div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-who">全家</div>
+          <div>北京查询入口关闭，后续不再要求清华开材料。</div>
         </div>
       </div>
 
       <div class="tl-item">
         <div class="tl-dot tl-dot-g"></div>
-        <div class="tl-time tl-time-g">第二天（48小时）</div>
+        <div class="tl-time tl-time-r">当前：收到快递后</div>
         <div class="tl-row">
           <div class="tl-who">爸/妈</div>
-          <div>按补件清单跑派出所/医院：关系证明、曾用名（1天）</div>
+          <div>收到户口迁移证原件后，先拍完整照片留档。</div>
         </div>
         <div class="tl-row">
-          <div class="tl-who">四叔</div>
-          <div>向清华或清华窗口确认的相关派出所拿到至少1份状态说明、材料清单或迁移记录</div>
+          <div class="tl-who">爸/妈</div>
+          <div>带迁移证原件、父母身份证、户口本、委托书、潘俊丞身份证/护照复印件去珠海户政/派出所。</div>
         </div>
         <div class="tl-row">
           <div class="tl-who">全家</div>
-          <div>把所有照片/回执汇总到微信群同一个文件夹</div>
+          <div>重点确认是否可代办、缺哪些材料、曾用名能否保留或出证明。</div>
         </div>
       </div>
 
       <div class="tl-item">
         <div class="tl-dot tl-dot-b"></div>
-        <div class="tl-time tl-time-b">第三天（72小时）</div>
+        <div class="tl-time tl-time-b">下一步：出生公证</div>
         <div class="tl-row">
           <div class="tl-who">爸/妈</div>
-          <div>带新补件回珠海公证处二次预审，争取正式受理</div>
+          <div>完成珠海接收/落户后，带新户口页或户政材料回公证处预审。</div>
         </div>
         <div class="tl-row">
           <div class="tl-who">潘俊丞</div>
-          <div>若无受理把握：发邮件给律师评估备用方案</div>
+          <div>如窗口要求补充委托、身份证明或照片，及时补电子版。</div>
         </div>
         <div class="tl-row">
           <div class="tl-who">全家</div>
-          <div>开会15分钟：确定主线还是主线+备线并跑</div>
+          <div>若出生公证仍无法受理，再整理备用材料包给专业人士评估。</div>
         </div>
       </div>
     </div>
@@ -3166,9 +3079,9 @@
       </div>
       <p>如果窗口要求补件、说明原因或转办，就回到对应模板。用途是把窗口口径写清楚，方便公证处判断。给谁看：窗口、公证处、家里。拿不到盖章件时，至少拍窗口口径并记时间、地点、接待人。</p>
       <div class="action-row">
-        <button class="big-action" onclick="showTab('window'); showWindowPanel('notary')">🏛️ 公证处模板</button>
-        <button class="big-action" onclick="showTab('window'); showWindowPanel('police')">🏢 派出所/户政模板</button>
-        <button class="big-action" onclick="showTab('window'); showWindowPanel('tsinghua')">🎓 清华户籍模板</button>
+        <button class="big-action" onclick="showTab('window'); showWindowPanel('police')">🏢 珠海户政记录</button>
+        <button class="big-action" onclick="showTab('window'); showWindowPanel('notary')">🏛️ 公证处确认</button>
+        <button class="big-action" onclick="showTab('window'); showWindowPanel('tsinghua')">✅ 北京已完成记录</button>
       </div>
     </div>
 
@@ -3177,7 +3090,7 @@
   <!-- ====== TAB: 工具 ====== -->
   <div id="tab-tools" class="section">
     <div class="screen-title">内部参考</div>
-    <div class="screen-sub">备用方案、电话和内部参考放这里。公证处话术已放回「窗口」里的公证处页。</div>
+    <div class="screen-sub">备用方案、电话和内部参考放这里。当前主入口是珠海户政接收。</div>
 
     <div class="card">
       <div class="card-title">
@@ -3185,6 +3098,7 @@
       </div>
       <div class="action-row">
         <button class="big-action" onclick="showTab('questions','tools')">❓ 打电话 / 问公证处</button>
+        <button class="big-action" onclick="showTab('window'); showWindowPanel('police')">🏢 珠海户政</button>
         <button class="big-action" onclick="showTab('backup','tools')">🆘 备用方案</button>
       </div>
     </div>
@@ -3196,8 +3110,8 @@
       <div class="action-row">
         <a class="big-link" href="tel:07562128812">珠海公证处 0756-2128812</a>
         <a class="big-link" href="tel:07562128567">珠海公证处 0756-2128567</a>
-        <a class="big-link" href="tel:13691174335">清华集体户口 愉悦 13691174335</a>
-        <a class="big-link" href="tel:01062554600">中关村派出所 62554600（先由清华窗口确认）</a>
+        <a class="big-link" href="tel:13691174335">清华集体户口 愉悦 13691174335（已完成记录）</a>
+        <a class="big-link" href="tel:01062554600">中关村派出所 62554600（已办理迁移证）</a>
       </div>
     </div>
   </div>
@@ -3252,7 +3166,7 @@
         if (state.scene) q.set('scene', sceneToQuery(state.scene));
         if (state.choice) q.set('choice', state.choice);
       } else if (tab === 'window') {
-        q.set('panel', state.panel || 'notary');
+        q.set('panel', state.panel || 'police');
         if (state.stage) q.set('stage', String(state.stage));
       }
 
@@ -3347,7 +3261,7 @@
         if (s.choice) showChoice(s.choice, true);
       } else if (s.tab === 'window') {
         showTab('window', 'window', true);
-        showWindowPanel(s.panel || 'notary', { stage: s.stage, silent: true });
+        showWindowPanel(s.panel || 'police', { stage: s.stage, silent: true });
       } else if (s.tab === 'materials') {
         showTab('materials', 'materials', true);
       } else if (s.tab === 'tools') {
