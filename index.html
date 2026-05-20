@@ -42,6 +42,10 @@
       padding: 0;
     }
 
+    html {
+      overflow-x: hidden;
+    }
+
     body {
       font-family: -apple-system, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
       background: var(--paper);
@@ -50,6 +54,7 @@
       font-size: 16px;
       padding-bottom: calc(72px + env(safe-area-inset-bottom));
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
     /* HEADER */
@@ -450,6 +455,21 @@
       display: flex;
       align-items: center;
       gap: var(--space-2);
+    }
+
+    .window-stage-body .stage-block ol {
+      padding-left: 1.25em;
+      margin: 0;
+    }
+
+    .window-stage-body .stage-block li {
+      font-size: 15px;
+      line-height: 1.75;
+      margin-bottom: 8px;
+    }
+
+    .window-stage-body .stage-block li:last-child {
+      margin-bottom: 0;
     }
 
     .window-stage-body .copy-block,
@@ -857,6 +877,25 @@
       background: #fff;
     }
 
+    .tbl-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 8px 0;
+    }
+
+    .tbl-wrap .tbl {
+      margin: 0;
+      min-width: 280px;
+    }
+
+    .box-blue--flush {
+      margin: 0 0 var(--space-3);
+    }
+
+    .card--flush-top {
+      margin-top: 0;
+    }
+
     /* COPY BLOCK */
     .copy-block {
       background: #fff;
@@ -898,11 +937,46 @@
 
     .copy-text {
       font-size: 15px;
-      white-space: pre-wrap;
+      white-space: pre-line;
       word-break: break-word;
-      line-height: 1.8;
+      line-height: 1.75;
       color: var(--ink);
       order: 2;
+      margin: 0;
+      padding: 14px 16px;
+      background: var(--paper-warm);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .window-stage-body .copy-text {
+      padding: 14px 16px;
+      background: var(--paper-warm);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .copy-hint {
+      margin: 0 0 var(--space-3);
+      padding: 10px 12px;
+      background: var(--accent-soft);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--ink);
+      order: 1;
+    }
+
+    .copy-hint strong {
+      color: var(--ink);
+    }
+
+    .window-stage-body .copy-block .copy-hint {
+      margin: 0 0 var(--space-3);
+      padding: 10px 12px;
+      background: var(--accent-soft);
+      border-left: 3px solid var(--accent);
     }
 
     /* FLOWCHART */
@@ -915,7 +989,44 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-width: 300px;
+      min-width: 0;
+      width: 100%;
+    }
+
+    .flow-split {
+      display: flex;
+      width: 100%;
+      margin: 8px 0;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .flow-split-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+      max-width: 150px;
+      min-width: 0;
+    }
+
+    .flow-sub-split {
+      display: flex;
+      width: 100%;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .flow-sub-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .flow-spacer {
+      height: 16px;
     }
 
     .fnode {
@@ -1245,23 +1356,96 @@
         margin: 0 auto;
       }
 
-      .nav {
+      .header {
         max-width: 720px;
-        margin: 0 auto;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .nav {
+        width: 100%;
+        max-width: 720px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        margin: 0;
       }
     }
 
-    @media (max-width: 360px) {
+    @media (max-width: 480px) {
       .scene-grid {
         grid-template-columns: 1fr;
       }
 
+      .segmented {
+        grid-template-columns: 1fr;
+      }
+
+      .tbl {
+        table-layout: fixed;
+      }
+
+      .tbl th,
+      .tbl td {
+        word-break: break-word;
+      }
+
+      .flow-split {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .flow-split-col,
+      .fbranch-col {
+        max-width: none;
+        width: 100%;
+      }
+
+      .fbranch {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .fnode {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .window-stage summary {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 12px var(--space-3);
+      }
+
+      .stage-pill {
+        min-width: 48px;
+        font-size: 11px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .section {
+        padding-left: var(--space-2);
+        padding-right: var(--space-2);
+      }
+
       .screen-title {
+        font-size: 20px;
+      }
+
+      .nav-tab {
+        font-size: 9px;
+        padding: 4px 2px;
+      }
+
+      .nav-tab .nav-ico {
         font-size: 22px;
       }
 
-      .segmented {
-        grid-template-columns: 1fr;
+      .tbl th,
+      .tbl td {
+        padding: 8px 6px;
+        font-size: 12px;
       }
     }
   </style>
@@ -1272,7 +1456,7 @@
     <div class="header-row">
       <div>
         <div class="header-title">📋 出生公证作战手册</div>
-        <div class="header-sub">给家人 · 潘俊丞 I-485 材料办理</div>
+        <div class="header-sub">给家人 · 潘俊丞长期工签材料办理</div>
       </div>
       <div class="header-badge">2026·05</div>
     </div>
@@ -1386,7 +1570,7 @@
         <div class="copy-label">给公证处预审用的 6 个确认问题<button class="copy-btn" onclick="cp(this,'qlist-fast')">📋 复制这段话</button></div>
         <div class="copy-text" id="qlist-fast">您好，我们想先请您帮忙预审一下材料，确认是否可以受理或需要补哪些材料。
 
-          我儿子潘俊丞，2021年毕业于清华大学，现居美国，由我们父母代办出生公证，用于美国移民申请。我们已准备护照复印件、身份证扫描件、父母身份证户口本结婚证、出生医学证明、独生子女证、出生记录和照片。
+          我儿子潘俊丞，2021年毕业于清华大学，现居美国，由我们父母代办出生公证，用于长期工签材料办理。我们已准备护照复印件、身份证扫描件、父母身份证户口本结婚证、出生医学证明、独生子女证、出生记录和照片。
 
           想请您帮忙预审并确认 6 个问题：
 
@@ -1416,16 +1600,15 @@
     <div id="scene-uncle-call" class="scene-panel">
       <div class="back-row"><button class="text-btn" onclick="backToScenes()">← 返回场景</button></div>
       <div class="screen-title">四叔在北京</div>
-      <div class="screen-sub">目标有两个：查状态、拿证明；必要时可办理户口迁移（迁入/迁出）相关事项。身份证换领仍需先确认。</div>
+      <div class="screen-sub">目标只有三个：查户口还在不在、拿集体户材料、问下一站去哪。不要在清华纠缠出生公证本身。</div>
 
       <div class="card">
         <div class="card-title">
           <div class="icon ib">📍</div>去哪里
         </div>
-        <p><strong>第一站：清华后勤燕园大厦二层户籍窗口</strong><br>查户籍状态；如果还在，询问能否领取或复印常住人口登记卡本人页 + 集体户首页盖章复印件。</p>
+        <p><strong>北京市海淀区清华大学后勤综合服务平台问询接待处集体户口窗口</strong><br>联系人：愉悦<br>电话：13691174335<br>查户籍状态；如果还在，询问能否领取或复印常住人口登记卡本人页 + 集体户首页盖章复印件。</p>
         <div class="action-row">
-          <a class="big-link" href="tel:01062793001">📞 62793001 转户籍</a>
-          <a class="big-link" href="tel:18611017130">📞 18611017130</a>
+          <a class="big-link" href="tel:13691174335">📞 愉悦 13691174335</a>
         </div>
         <p><strong>第二站：清华窗口确认的相关派出所</strong><br>如清华窗口确认需要，再去其指定派出所；若明确为中关村派出所，再去中关村派出所。</p>
         <div class="action-row">
@@ -1434,26 +1617,20 @@
       </div>
 
       <div class="copy-block">
-        <div class="copy-label">四叔现场照着说<button class="copy-btn" onclick="cp(this,'uncle-msg-fast')">📋 复制这段话</button></div>
-        <div class="copy-text" id="uncle-msg-fast">您好，我受潘俊丞委托来查询户籍状态和办理出生公证所需的户籍证明材料。
+        <div class="copy-label">对清华户籍窗口说<button class="copy-btn" onclick="cp(this,'uncle-msg-fast')">📋 复制这段话</button></div>
+        <div class="copy-text" id="uncle-msg-fast">您好，我是潘俊丞的亲属，受他委托来咨询集体户口的事。
 
-          这次不是先办身份证，而是先查清楚户籍状态，并尽量拿到出生公证需要的户籍证明材料。
+          潘俊丞现在人在美国，家里正在珠海办理涉外出生公证。今天来清华不是办理出生公证，也不是换身份证或落户，主要是想确认他的户口是否仍在清华集体户，以及贵处是否能提供用于后续公证处审核的集体户相关材料。
 
-          我今天先到清华后勤燕园大厦二层户籍窗口咨询：
-          电话：62793001 转户籍
-          微信服务号：18611017130
+          想请您帮忙确认：
+          1. 他的户口现在是否仍在清华大学集体户？
+          2. 如果仍在，是否可以提供或复印《常住人口登记卡》本人页？
+          3. 是否可以提供集体户首页盖章复印件？
+          4. 如果已经迁出，能否查询迁出时间、迁往地、迁移证编号或迁出记录？
+          5. 如果清华这边不能提供材料，后续应该去哪个派出所或户政窗口查询？
+          6. 如果方便，也请您说明清华目前能提供什么、不能提供什么，避免我们家人跑错窗口。
 
-          主要问：
-          1. 潘俊丞的户口现在是否还在清华集体户？
-          2. 如果还在，能否领取或复印常住人口登记卡本人页、集体户首页盖章复印件？
-          3. 如果已迁出，是什么时候迁出、迁往哪里、是否有户口迁移证或迁移记录？
-          4. 能否出具户籍证明、户籍状态说明、户籍登记记录或常住人口基本信息表？
-
-          如果清华窗口说需要去派出所，请麻烦问清楚具体是哪个派出所、办理什么事项、需要哪些材料。
-
-          如果窗口让填写户口迁移（迁入/迁出）相关申请，可先按窗口要求办理；如涉及身份证换领，请先拍照发群里确认后再决定。
-
-          如果窗口说不能办，也麻烦请他们写清楚不能办的原因，或者至少拍下材料清单/窗口说明。</div>
+          谢谢您。我们主要是想把户籍链条查清楚，后续再按公证处和公安户政要求办理。</div>
       </div>
     </div>
 
@@ -1596,7 +1773,7 @@
             <div class="copy-label">给公证处预审用的 6 个确认问题<button class="copy-btn" onclick="cp(this,'qlist-window')">📋 复制这段话</button></div>
             <div class="copy-text" id="qlist-window">您好，我们想先请您帮忙预审一下材料，确认是否可以受理或需要补哪些材料。
 
-              我儿子潘俊丞，2021年毕业于清华大学，现居美国，由我们父母代办出生公证，用于美国移民申请。我们已准备护照复印件、身份证扫描件、父母身份证户口本结婚证、出生医学证明、独生子女证、出生记录和照片。
+              我儿子潘俊丞，2021年毕业于清华大学，现居美国，由我们父母代办出生公证，用于长期工签材料办理。我们已准备护照复印件、身份证扫描件、父母身份证户口本结婚证、出生医学证明、独生子女证、出生记录和照片。
 
               想请您帮忙预审并确认 6 个问题：
 
@@ -1715,14 +1892,14 @@
 
           <div class="copy-block">
             <div class="copy-label">公证处版：材料预审 / 补正说明<button class="copy-btn" onclick="cp(this,'window-proof-notary')">📋 复制这个模板</button></div>
-            <div class="box-blue"><strong>给爸妈的说明模板用法：</strong>如果窗口说“材料不够、先补件”，就用上面的公证处模板。这个模板是说明“缺什么、谁出具、是否要本人到场”。给窗口当场看，给公证处解释，也在家里留档。拿不到盖章说明时，先拍窗口口径，再记时间、地点、接待人姓名/工号。</div>
+            <p class="copy-hint"><strong>给爸妈：</strong>窗口说「材料不够、先补件」时，把上面模板给工作人员看，请对方按项勾选。用于说明缺什么、谁出具、是否要本人到场。拿不到盖章件时，拍窗口说明并记下时间、地点、接待人。</p>
             <div class="copy-text" id="window-proof-notary">出生公证材料预审 / 补正说明
 
               申请人：潘俊丞
               身份证号码：__________
               护照号码：__________
               出生日期：1998年05月01日
-              申请事项：办理涉外出生公证，用于美国移民申请。
+              申请事项：办理涉外出生公证，用于长期工签材料办理。
 
               代理人：__________
               代理人与申请人关系：父亲 / 母亲
@@ -1865,7 +2042,7 @@
         <div class="window-stage-body">
           <div class="copy-block">
             <div class="copy-label">派出所 / 户政窗口版说明模板<button class="copy-btn" onclick="cp(this,'window-proof-police')">📋 复制这个模板</button></div>
-            <div class="box-blue"><strong>给爸妈的说明模板用法：</strong>如果派出所说“查不到、不能开”，就用上面的派出所/户政模板。这个模板是说明“查了什么、查到什么、不能开的原因”。给窗口、公证处、家里三方都能看。拿不到盖章说明时，先拍窗口答复，再记时间和接待人。</div>
+            <p class="copy-hint"><strong>给爸妈：</strong>派出所说「查不到、不能开」时，把上面模板给工作人员看。用于说明查了什么、查到什么、不能开的原因。拿不到盖章件时，拍窗口答复并记下时间和接待人。</p>
             <div class="copy-text" id="window-proof-police">户籍档案查询 / 无法出具证明说明
 
               查询对象：潘俊丞
@@ -1909,118 +2086,136 @@
     </div>
 
     <div id="window-tsinghua" class="window-panel">
+      <div class="box-blue box-blue--flush"><strong>清华这一站只查集体户状态和迁出线索。</strong>能拿材料就拿；拿不到就问下一站。不要在清华纠缠出生公证，也不要把清华说明当成长期工签材料的核心证明。</div>
+
+      <div class="card card--flush-top">
+        <div class="card-title">
+          <div class="icon ib">🧭</div>现场判断卡
+        </div>
+        <table class="tbl">
+          <tr>
+            <th>现场结果</th>
+            <th>下一步</th>
+          </tr>
+          <tr>
+            <td>户口还在清华</td>
+            <td>拿本人页 + 集体户首页盖章复印件，然后给珠海公证处。</td>
+          </tr>
+          <tr>
+            <td>户口已迁出</td>
+            <td>问迁出时间、迁往地、迁移证编号，然后去对应派出所/户政。</td>
+          </tr>
+          <tr>
+            <td>清华不给材料</td>
+            <td>问原因 + 下一站；能在清华封头纸上手写几项最好，不能写就记录口径。</td>
+          </tr>
+          <tr>
+            <td>清华说必须本人</td>
+            <td>问是否接受授权委托书；不接受就问替代方式。</td>
+          </tr>
+          <tr>
+            <td>清华说去派出所</td>
+            <td>问清具体派出所、事项名称、材料清单。</td>
+          </tr>
+        </table>
+      </div>
+
       <details class="window-stage" open>
         <summary><span class="stage-pill">阶段1</span>开场与背景</summary>
         <div class="window-stage-body">
-          <div class="box-gold"><strong>目标：</strong>第一站先去清华户籍窗口。查清楚是否仍在清华集体户；如已迁出，问清迁出时间、迁往哪里、迁移证编号。</div>
-          <div class="stage-block">
-            <div class="stage-block-title">
-              <div class="icon ib">📍</div>第一站：清华户籍窗口
-            </div>
-            <p><strong>清华后勤燕园大厦二层户籍窗口</strong><br>电话：62793001 转户籍<br>微信服务号：18611017130</p>
-            <div class="action-row">
-              <a class="big-link" href="tel:01062793001">📞 62793001 转户籍</a>
-              <a class="big-link" href="tel:18611017130">📞 18611017130</a>
-            </div>
+          <div class="box-gold"><strong>目标：</strong>确认潘俊丞的集体户状态。能拿材料就拿；拿不到就问清下一站。不要在清华纠缠出生公证本身。</div>
+          <p><strong>北京市海淀区清华大学后勤综合服务平台问询接待处集体户口窗口</strong><br>联系人：愉悦<br>电话：13691174335</p>
+          <div class="action-row">
+            <a class="big-link" href="tel:13691174335">📞 愉悦 13691174335</a>
           </div>
           <div class="copy-block">
-            <div class="copy-label">四叔现场照着说<button class="copy-btn" onclick="cp(this,'uncle-msg-window')">📋 复制这段话</button></div>
-            <div class="copy-text" id="uncle-msg-window">您好，我受潘俊丞委托来查询户籍状态和办理出生公证所需的户籍证明材料。
+            <div class="copy-label">对清华户籍窗口说<button class="copy-btn" onclick="cp(this,'uncle-msg-window')">📋 复制这段话</button></div>
+            <div class="copy-text" id="uncle-msg-window">您好，我是潘俊丞的亲属，受他本人委托来咨询清华集体户口材料。
 
-              这次不是先办身份证，而是先查清楚户籍状态，并尽量拿到出生公证需要的户籍证明材料。
+              潘俊丞现在人在美国，家里正在珠海办理涉外出生公证。今天来清华不是办理出生公证，也不是换身份证或落户，主要是想确认他的户口是否仍在清华集体户，以及贵处是否能提供用于后续公证处审核的集体户相关材料。
 
-              我今天先到清华后勤燕园大厦二层户籍窗口咨询：
-              电话：62793001 转户籍
-              微信服务号：18611017130
+              想请您帮忙确认：
 
-              主要问：
-              1. 潘俊丞的户口现在是否还在清华集体户？
-              2. 如果还在，能否领取或复印常住人口登记卡本人页、集体户首页盖章复印件？
-              3. 如果已迁出，是什么时候迁出、迁往哪里、是否有户口迁移证或迁移记录？
-              4. 能否出具户籍证明、户籍状态说明、户籍登记记录或常住人口基本信息表？
+              1. 他的户口现在是否仍在清华大学集体户？
+              2. 如果仍在，是否可以提供或复印《常住人口登记卡》本人页？
+              3. 是否可以提供集体户首页盖章复印件？
+              4. 如果已经迁出，能否查询迁出时间、迁往地、迁移证编号或迁出记录？
+              5. 如果清华这边不能提供材料，后续应该去哪个派出所或户政窗口查询？
+              6. 如果方便，也请您说明清华目前能提供什么、不能提供什么，避免我们家人跑错窗口。
 
-              如果清华窗口说需要去派出所，请麻烦问清楚具体是哪个派出所、办理什么事项、需要哪些材料。
-
-              如果窗口让填写户口迁移（迁入/迁出）相关申请，可先按窗口要求办理；如涉及身份证换领，请先拍照发群里确认后再决定。
-
-              如果窗口说不能办，也麻烦请他们写清楚不能办的原因，或者至少拍下材料清单/窗口说明。</div>
+              谢谢您。我们主要是想把户籍链条查清楚，后续再按公证处和公安户政要求办理。</div>
           </div>
         </div>
       </details>
 
       <details class="window-stage" open>
-        <summary><span class="stage-pill">阶段2</span>确认问题</summary>
+        <summary><span class="stage-pill">阶段2</span>现场要问</summary>
         <div class="window-stage-body">
           <div class="stage-block">
             <div class="stage-block-title">
-              <div class="icon io">❓</div>现场要问
+              <div class="icon ig">A</div>如果户口还在清华
             </div>
-            <ul class="checklist">
-              <li>
-                <div class="dot dot-b">1</div>
-                <div>
-                  <div class="item-l">户口是否仍在清华集体户？</div>
-                </div>
-              </li>
-              <li>
-                <div class="dot dot-b">2</div>
-                <div>
-                  <div class="item-l">如果还在，能否领取或复印常住人口登记卡本人页、集体户首页盖章复印件？</div>
-                </div>
-              </li>
-              <li>
-                <div class="dot dot-b">3</div>
-                <div>
-                  <div class="item-l">如果已迁出，何时迁出、迁往哪里、迁移证编号是什么？</div>
-                </div>
-              </li>
-              <li>
-                <div class="dot dot-b">4</div>
-                <div>
-                  <div class="item-l">能否出具户籍状态说明、户籍登记记录或无法提供材料说明？</div>
-                </div>
-              </li>
-              <li>
-                <div class="dot dot-b">5</div>
-                <div>
-                  <div class="item-l">如需派出所，具体是哪个派出所、办什么事项、带哪些材料？</div>
-                </div>
-              </li>
-            </ul>
+            <ol>
+              <li>能否复印《常住人口登记卡》本人页？</li>
+              <li>能否提供集体户首页盖章复印件？</li>
+              <li>这些材料是否可以用于涉外出生公证？</li>
+              <li>是否需要潘俊丞本人授权委托书、身份证复印件、护照复印件？</li>
+              <li>今天能不能取？如果不能，什么时候、在哪里取？</li>
+            </ol>
+          </div>
+          <div class="stage-block">
+            <div class="stage-block-title">
+              <div class="icon io">B</div>如果户口已经迁出
+            </div>
+            <ol>
+              <li>迁出时间是什么时候？</li>
+              <li>迁往哪里？</li>
+              <li>户口迁移证编号是什么？</li>
+              <li>迁出记录能否打印或盖章？</li>
+              <li>后续应该去哪个派出所/户政窗口查？</li>
+              <li>需要带哪些材料？</li>
+            </ol>
+          </div>
+          <div class="stage-block">
+            <div class="stage-block-title">
+              <div class="icon ir">C</div>如果清华查不到或不给材料
+            </div>
+            <ol>
+              <li>是因为户口不在清华，还是因为窗口权限不能查？</li>
+              <li>是否可以告知下一步应该去哪个派出所/户政窗口？</li>
+              <li>如果方便，是否可以在清华封头纸或便签上手写几项关键信息？不能写也没关系，我们现场记录。</li>
+              <li>如果不能手写，能否口头告知原因，我们现场记录？</li>
+            </ol>
           </div>
         </div>
       </details>
 
-      <details class="window-stage">
+      <details class="window-stage" open>
         <summary><span class="stage-pill">阶段3</span>卡住时应对</summary>
         <div class="window-stage-body">
           <div class="stage-block">
             <div class="stage-block-title">
-              <div class="icon io">🧭</div>窗口口头拒绝时先留痕
+              <div class="icon ir">!</div>如果窗口说“不能开”
             </div>
-            <ul class="checklist">
-              <li>
-                <div class="dot dot-b">1</div>
-                <div>
-                  <div class="item-l">问清楚“不能办”的具体原因</div>
-                  <div class="item-n">最好写清是“不能查询”“不能出具”还是“需转办派出所”。</div>
-                </div>
-              </li>
-              <li>
-                <div class="dot dot-b">2</div>
-                <div>
-                  <div class="item-l">确认下一站</div>
-                  <div class="item-n">记录具体派出所名称、事项和所需材料，避免反复跑窗口。</div>
-                </div>
-              </li>
-              <li>
-                <div class="dot dot-b">3</div>
-                <div>
-                  <div class="item-l">至少带回口径记录</div>
-                  <div class="item-n">拍照并记录时间、地点、接待人，后续可给公证处与家里同步。</div>
-                </div>
-              </li>
-            </ul>
+            <div class="copy-text">明白。那请问是清华没有这个材料，还是这个窗口不能出？
+              如果我们后续要办涉外出生公证，应该去哪个派出所或户政部门查询户籍记录？
+              如果方便，能否在清华封头纸或便签上手写几项关键信息？不能写也没关系，请告诉我们具体窗口名称和办理事项。</div>
+          </div>
+          <div class="stage-block">
+            <div class="stage-block-title">
+              <div class="icon ib">→</div>如果窗口说“去派出所”
+            </div>
+            <div class="copy-text">请问具体是哪个派出所？
+              办理事项应该怎么说？
+              是查询户籍状态、迁出记录、户籍登记记录，还是开具户籍证明？
+              需要带哪些材料？</div>
+          </div>
+          <div class="stage-block">
+            <div class="stage-block-title">
+              <div class="icon io">人</div>如果窗口说“必须本人来”
+            </div>
+            <div class="copy-text">申请人现在长期在美国，是否可以凭中文授权委托书、身份证复印件、护照复印件由亲属代办？
+              如果不能代办，是否可以说明原因，或告知有没有线上/邮寄/公证委托方式？</div>
           </div>
         </div>
       </details>
@@ -2028,37 +2223,65 @@
       <details class="window-stage">
         <summary><span class="stage-pill">阶段4</span>留痕与带回材料</summary>
         <div class="window-stage-body">
+          <table class="tbl">
+            <tr>
+              <th>类型</th>
+              <th>要拿什么</th>
+            </tr>
+            <tr>
+              <td>最好结果</td>
+              <td>常住人口登记卡本人页复印件 + 集体户首页盖章复印件</td>
+            </tr>
+            <tr>
+              <td>如果已迁出</td>
+              <td>迁出时间、迁往地、迁移证编号、迁出记录</td>
+            </tr>
+            <tr>
+              <td>如果需要派出所</td>
+              <td>派出所名称、地址、窗口名称、办理事项、材料清单</td>
+            </tr>
+            <tr>
+              <td>如果不给材料</td>
+              <td>记录原因、接待窗口、接待人、日期时间</td>
+            </tr>
+            <tr>
+              <td>如果有纸质材料</td>
+              <td>拍完整照片，包含抬头、正文、盖章、日期</td>
+            </tr>
+          </table>
           <div class="copy-block">
-            <div class="copy-label">清华户籍窗口版说明模板<button class="copy-btn" onclick="cp(this,'window-proof-tsinghua')">📋 复制这个模板</button></div>
-            <div class="box-blue"><strong>给爸妈的说明模板用法：</strong>如果清华窗口口头说“不能开、要去别处”，就用上面的清华户籍模板，请对方按项勾选。这个模板是说明“户口状态、能给什么材料、下一步去哪办”。给窗口、公证处和家里留档。拿不到盖章说明时，拍窗口口径并记录时间、地点、接待人。</div>
-            <div class="copy-text" id="window-proof-tsinghua">清华大学集体户籍状态查询说明
+            <div class="copy-label">现场记录 / 封头纸手写要点<button class="copy-btn" onclick="cp(this,'window-proof-tsinghua-short')">📋 复制</button></div>
+            <p class="copy-hint"><strong>给四叔：</strong>这不是要求清华正式开证明。窗口愿意的话，在有清华封头的纸上手写几项关键信息；可以盖章就盖，不能盖章就算了，不要纠缠。</p>
+            <div class="copy-text" id="window-proof-tsinghua-short">清华集体户口现场记录 / 封头纸手写要点
 
-              学生姓名：潘俊丞
-              身份证号码：__________
-              就读时间：2017年—2021年
-              院系/专业：清华大学美术学院艺术与科技（信息设计）专业
-              申请事项：查询集体户籍状态，用于办理涉外出生公证。
+              用途：只用于家属后续向公证处或公安户政部门说明查询经过，不要求清华出具正式证明。
 
-              受托人：潘佳杰
-              身份证号码：320826197103211438
-              受托事项：代为查询、领取、复印、申请出生公证所需户籍相关材料。
+              如果窗口愿意写在清华封头纸或便签上，尽量写清以下几项即可；如果不方便写，由受托人自己现场记录也可以：
 
-              经查询，结果如下：
-              □ 该学生户口仍在清华大学集体户；
-              □ 该学生户口已迁出清华大学集体户；
-              □ 迁出时间：____年__月__日；
-              □ 迁往地址/迁往地：__________；
-              □ 户口迁移证编号：__________；
-              □ 当前无法提供《常住人口登记卡》本人页，原因：__________；
-              □ 当前无法提供集体户首页盖章复印件，原因：__________；
-              □ 可提供材料：__________；
-              □ 需前往__________派出所进一步查询/办理。
+              1. 查询对象：潘俊丞，身份证号：__________
+              2. 查询日期：____年__月__日
+              3. 查询地点/窗口：__________
+              4. 接待人/联系电话：__________
+              5. 查询结果：
+              □ 户口仍在清华大学集体户
+              □ 户口已迁出清华大学集体户
+              □ 当前窗口暂无法确认
+              6. 如已迁出：
+              迁出时间：__________
+              迁往地：__________
+              迁移证编号：__________
+              7. 清华可提供材料：
+              □ 《常住人口登记卡》本人页复印件
+              □ 集体户首页盖章复印件
+              □ 迁出记录/迁移信息
+              □ 其他：__________
+              8. 清华不能提供的材料及原因：__________
+              9. 建议下一步去哪里查：
+              派出所/户政部门：__________
+              办理事项：__________
+              需带材料：__________
 
-              经办人：__________
-              联系电话：__________
-              单位/窗口名称：__________
-              日期：____年__月__日
-              单位盖章：</div>
+              备注：可以盖章就盖章；不能盖章就不要求。不能手写也没关系，由受托人现场记录窗口口径，并拍摄窗口信息或已取得材料。</div>
           </div>
         </div>
       </details>
@@ -2288,9 +2511,9 @@
 
         <div class="fnode fnode-decision fnode-jump" onclick="goTo('window','notary')">🔀 公证处是否愿意预审？</div>
 
-        <div style="display:flex;width:100%;margin:8px 0;gap:8px;justify-content:center;">
+        <div class="flow-split">
           <!-- 左：愿意 -->
-          <div style="display:flex;flex-direction:column;align-items:center;flex:1;max-width:150px;">
+          <div class="flow-split-col">
             <span class="fbranch-label fl-yes">✓ 愿意</span>
             <div class="farrow">
               <div class="farrow-line"></div>
@@ -2312,8 +2535,8 @@
               <div class="farrow-head"></div>
             </div>
             <div class="fnode fnode-decision compact-node">能否受理？</div>
-            <div style="display:flex;width:100%;gap:6px;margin-top:6px;">
-              <div style="display:flex;flex-direction:column;align-items:center;flex:1;">
+            <div class="flow-sub-split">
+              <div class="flow-sub-col">
                 <span class="fbranch-label fl-yes">能</span>
                 <div class="farrow">
                   <div class="farrow-line"></div>
@@ -2321,7 +2544,7 @@
                 </div>
                 <div class="fnode fnode-end-g compact-node">🎉 受理！等公证书</div>
               </div>
-              <div style="display:flex;flex-direction:column;align-items:center;flex:1;">
+              <div class="flow-sub-col">
                 <span class="fbranch-label fl-no">仍不能</span>
                 <div class="farrow">
                   <div class="farrow-line"></div>
@@ -2333,7 +2556,7 @@
           </div>
 
           <!-- 右：口头坚持 -->
-          <div style="display:flex;flex-direction:column;align-items:center;flex:1;max-width:150px;">
+          <div class="flow-split-col">
             <span class="fbranch-label fl-no">口头反馈暂不能受理</span>
             <div class="farrow">
               <div class="farrow-line"></div>
@@ -2350,8 +2573,8 @@
               <div class="farrow-head"></div>
             </div>
             <div class="fnode fnode-decision compact-node">态度改变？</div>
-            <div style="display:flex;width:100%;gap:6px;margin-top:6px;">
-              <div style="display:flex;flex-direction:column;align-items:center;flex:1;">
+            <div class="flow-sub-split">
+              <div class="flow-sub-col">
                 <span class="fbranch-label fl-yes">改了</span>
                 <div class="farrow">
                   <div class="farrow-line"></div>
@@ -2359,7 +2582,7 @@
                 </div>
                 <div class="fnode fnode-good compact-node fnode-jump" onclick="goTo('window','notary')">重回左侧<br>预审流程</div>
               </div>
-              <div style="display:flex;flex-direction:column;align-items:center;flex:1;">
+              <div class="flow-sub-col">
                 <span class="fbranch-label fl-no">仍不能</span>
                 <div class="farrow">
                   <div class="farrow-line"></div>
@@ -2371,8 +2594,8 @@
           </div>
         </div>
 
-        <div style="height:16px;"></div>
-        <div class="fnode fnode-end-r fnode-jump" style="width:240px;" onclick="goTo('backup')">🆘 如72小时内仍无法受理 → 整理备用材料包给律师评估（见「备用方案」）</div>
+        <div class="flow-spacer"></div>
+        <div class="fnode fnode-end-r fnode-jump" onclick="goTo('backup')">🆘 如72小时内仍无法受理 → 整理备用材料包给律师评估（见「备用方案」）</div>
 
       </div>
     </div>
@@ -2462,7 +2685,7 @@
           <div class="sn">5</div>
           <div>
             <div class="st">拿到公证书 + 英文译文相符公证</div>
-            <div class="sd">美国I-485用，需要译文与原文相符公证，珠海公证处系统会自动提示</div>
+            <div class="sd">长期工签材料办理用，需要译文与原文相符公证，珠海公证处系统会自动提示</div>
           </div>
         </div>
       </div>
@@ -2630,7 +2853,7 @@
   <!-- ====== TAB: 四叔 ====== -->
   <div id="tab-uncle" class="section">
 
-    <div class="box-red">✅ 四叔当前可办理：<strong>查清楚状态 + 拿证明材料 + 户口迁移（迁入/迁出）相关事项</strong>；涉及身份证换领仍需先确认。</div>
+    <div class="box-red">✅ 四叔当前只做三件事：<strong>查户口还在不在 + 拿集体户材料 + 问下一站去哪</strong>。清华不是出生公证办理机关，不要要求清华出齐公证材料。</div>
 
     <div class="card">
       <div class="card-title">
@@ -2642,19 +2865,19 @@
           <th>做什么</th>
         </tr>
         <tr>
-          <td><strong>第一站：清华后勤燕园大厦二层</strong><br>户籍窗口<br>☎ 62793001 转户籍<br>微信：18611017130</td>
+          <td><strong>北京市海淀区清华大学后勤综合服务平台</strong><br>问询接待处集体户口窗口<br>联系人：愉悦 ☎ 13691174335</td>
           <td>查户籍状态；如果还在，询问能否领取或复印常住人口登记卡本人页 + 集体户首页盖章复印件</td>
         </tr>
         <tr>
           <td><strong>第二站：清华窗口确认的相关派出所</strong><br>可能是中关村派出所，但以清华户籍窗口现场确认口径为准</td>
-          <td>按清华窗口指引，咨询户籍证明、户籍登记记录、迁移证或迁移情况说明</td>
+          <td>按清华窗口指引，咨询户籍证明、户籍登记记录、常住人口基本信息表、迁移证或迁移情况说明</td>
         </tr>
       </table>
     </div>
 
     <div class="card">
       <div class="card-title">
-        <div class="icon io">❓</div>要问的5个问题
+        <div class="icon io">❓</div>要问的6个问题
       </div>
       <ul class="checklist">
         <li>
@@ -2678,13 +2901,19 @@
         <li>
           <div class="dot dot-b">4</div>
           <div>
-            <div class="item-l">能否出具户籍证明、户籍状态说明、户籍登记记录或常住人口基本信息表？</div>
+            <div class="item-l">如果清华这边不能提供材料，后续应该去哪个派出所或户政窗口查询？</div>
           </div>
         </li>
         <li>
           <div class="dot dot-b">5</div>
           <div>
             <div class="item-l">如果已迁出，是什么时候迁出、迁往哪里、是否有户口迁移证或迁移记录？</div>
+          </div>
+        </li>
+        <li>
+          <div class="dot dot-b">6</div>
+          <div>
+            <div class="item-l">清华目前能提供什么、不能提供什么？如果不能提供，原因是什么？</div>
           </div>
         </li>
       </ul>
@@ -2702,8 +2931,8 @@
         </tr>
         <tr>
           <td><span class="tag tag-r">P0</span></td>
-          <td>户籍状态说明</td>
-          <td>任何情况都要</td>
+          <td>现场记录 / 口头结论</td>
+          <td>记录户口在不在、能给什么、下一站去哪</td>
         </tr>
         <tr>
           <td><span class="tag tag-r">P0</span></td>
@@ -2722,8 +2951,8 @@
         </tr>
         <tr>
           <td><span class="tag tag-o">P1</span></td>
-          <td>户籍登记底档记录</td>
-          <td>能查到</td>
+          <td>下一站窗口信息</td>
+          <td>派出所/户政部门名称、地址、事项、材料清单</td>
         </tr>
         <tr>
           <td><span class="tag tag-o">P1</span></td>
@@ -2734,28 +2963,20 @@
     </div>
 
     <div class="copy-block">
-      <div class="copy-label">📱 四叔现场照着说（可直接复制）<button class="copy-btn" onclick="cp(this,'uncle-msg')">复制</button></div>
-      <div class="copy-text" id="uncle-msg">您好，我受潘俊丞委托来查询户籍状态和办理出生公证所需的户籍证明材料。
+      <div class="copy-label">📱 对清华户籍窗口说（可直接复制）<button class="copy-btn" onclick="cp(this,'uncle-msg')">复制</button></div>
+      <div class="copy-text" id="uncle-msg">您好，我是潘俊丞的亲属，受他委托来咨询集体户口的事。
 
-        这次不是先办身份证，而是先查清楚户籍状态，并尽量拿到出生公证需要的户籍证明材料。
+        潘俊丞现在人在美国，家里正在珠海办理涉外出生公证。今天来清华不是办理出生公证，也不是换身份证或落户，主要是想确认他的户口是否仍在清华集体户，以及贵处是否能提供用于后续公证处审核的集体户相关材料。
 
-        我今天先到清华后勤燕园大厦二层户籍窗口咨询：
-        电话：62793001 转户籍
-        微信服务号：18611017130
+        想请您帮忙确认：
+        1. 他的户口现在是否仍在清华大学集体户？
+        2. 如果仍在，是否可以提供或复印《常住人口登记卡》本人页？
+        3. 是否可以提供集体户首页盖章复印件？
+        4. 如果已经迁出，能否查询迁出时间、迁往地、迁移证编号或迁出记录？
+        5. 如果清华这边不能提供材料，后续应该去哪个派出所或户政窗口查询？
+        6. 如果方便，也请您说明清华目前能提供什么、不能提供什么，避免我们家人跑错窗口。
 
-        主要问：
-        ① 潘俊丞的户口现在是否还在清华集体户？
-        ② 如果还在，能否领取或复印常住人口登记卡本人页、集体户首页盖章复印件？
-        ③ 如果已迁出，是什么时候迁出、迁往哪里、是否有户口迁移证或迁移记录？
-        ④ 能否出具户籍证明、户籍状态说明、户籍登记记录或常住人口基本信息表？
-
-        如果清华窗口说需要去派出所，请麻烦问清楚具体是哪个派出所、办理什么事项、需要哪些材料。
-
-        如果窗口让填写户口迁移（迁入/迁出）相关申请，可先按窗口要求办理；如涉及身份证换领，请先拍照发群里确认后再决定。
-
-        如果窗口说不能办，也麻烦请他们写清楚不能办的原因，或者至少拍下材料清单/窗口说明。
-
-        谢谢。</div>
+        谢谢您。我们主要是想把户籍链条查清楚，后续再按公证处和公安户政要求办理。</div>
     </div>
 
   </div>
@@ -2776,7 +2997,7 @@
       <div class="copy-label">📋 给公证处预审用的 6 个确认问题<button class="copy-btn" onclick="cp(this,'qlist')">复制</button></div>
       <div class="copy-text" id="qlist">您好，我们想先请您帮忙预审一下材料，确认是否可以受理或需要补哪些材料。
 
-        我儿子潘俊丞，2021年毕业于清华大学，现居美国，由我们父母代办出生公证，用于美国移民申请。我们已准备护照复印件、身份证扫描件、父母身份证户口本结婚证、出生医学证明、独生子女证、出生记录和照片。
+        我儿子潘俊丞，2021年毕业于清华大学，现居美国，由我们父母代办出生公证，用于长期工签材料办理。我们已准备护照复印件、身份证扫描件、父母身份证户口本结婚证、出生医学证明、独生子女证、出生记录和照片。
 
         想请您帮忙预审并确认 6 个问题：
 
@@ -2797,7 +3018,7 @@
       <div class="copy-label">📞 打电话前的发言稿<button class="copy-btn" onclick="cp(this,'phone-script')">复制</button></div>
       <div class="copy-text" id="phone-script">您好，我想咨询一下出生公证的办理。
 
-        我儿子潘俊丞，出生在珠海，2021年毕业于清华大学，现在人在美国，需要办出生公证用于美国移民申请。
+        我儿子潘俊丞，出生在珠海，2021年毕业于清华大学，现在人在美国，需要办出生公证用于长期工签材料办理。
 
         他的户籍当年迁到了清华集体户，现在状态不确定。我们已经有他的护照复印件、父母身份证户口本结婚证、出生医学证明、独生子女证、出生记录。
 
@@ -2910,11 +3131,11 @@
   <!-- ====== TAB: 备用 ====== -->
   <div id="tab-backup" class="section">
 
-    <div class="box-gold">📌 若出生公证短期仍无法受理，同步整理备用材料包给美国律师评估。是否用于 I-485 filing，由律师决定。主线仍然是继续争取出生公证。</div>
+    <div class="box-gold">📌 若出生公证短期仍无法受理，同步整理备用材料包给办理长期工签的专业人士评估。主线仍然是继续争取出生公证。</div>
 
     <div class="card">
       <div class="card-title">
-        <div class="icon io">📦</div>USCIS 备用材料包内容
+        <div class="icon io">📦</div>长期工签备用材料包内容
       </div>
       <table class="tbl">
         <tr>
@@ -2951,7 +3172,7 @@
     </div>
 
     <div class="box-red">
-      <strong>⚠️ 注意：</strong>美国国务院把中国出生证明列为"Available"，意味着USCIS期望看到出生公证。不提交公证的风险更高，因此主线要尽力做到底，备用方案是保底不是捷径。
+      <strong>⚠️ 注意：</strong>境外长期工签材料审核通常更看重正式出生公证。不提交公证的风险更高，因此主线要尽力做到底，备用方案是保底不是捷径。
     </div>
 
     <div class="card">
@@ -2990,7 +3211,7 @@
       <div class="action-row">
         <a class="big-link" href="tel:07562128812">珠海公证处 0756-2128812</a>
         <a class="big-link" href="tel:07562128567">珠海公证处 0756-2128567</a>
-        <a class="big-link" href="tel:01062793001">清华户籍 62793001</a>
+        <a class="big-link" href="tel:13691174335">清华集体户口 愉悦 13691174335</a>
         <a class="big-link" href="tel:01062554600">中关村派出所 62554600（先由清华窗口确认）</a>
       </div>
     </div>
@@ -2999,7 +3220,168 @@
   <div class="spacer"></div>
 
   <script>
-    function showTab(name, navName) {
+    const SCENE_ALIASES = {
+      notary: 'notary',
+      tsinghua: 'uncle-call',
+      uncle: 'uncle-call',
+      'uncle-call': 'uncle-call',
+      prepare: 'prepare',
+      rejected: 'rejected'
+    };
+
+    const TAB_ALIASES = {
+      questions: { tab: 'questions', nav: 'tools' },
+      backup: { tab: 'backup', nav: 'tools' }
+    };
+
+    let routeState = { tab: 'today' };
+    let suppressRouteUpdate = false;
+
+    function scheduleRouteCommit() {
+      if (suppressRouteUpdate) return;
+      clearTimeout(window.__routeCommitTimer);
+      window.__routeCommitTimer = setTimeout(commitRoute, 0);
+    }
+
+    const SCENE_TO_QUERY = {
+      'uncle-call': 'tsinghua',
+      notary: 'notary',
+      prepare: 'prepare',
+      rejected: 'rejected'
+    };
+
+    function sceneToQuery(scene) {
+      return SCENE_TO_QUERY[scene] || scene;
+    }
+
+    function sceneFromQuery(value) {
+      return SCENE_ALIASES[value] || value;
+    }
+
+    function buildQuery(state) {
+      const q = new URLSearchParams();
+      const tab = state.tab || 'today';
+      q.set('tab', tab);
+
+      if (tab === 'today') {
+        if (state.scene) q.set('scene', sceneToQuery(state.scene));
+        if (state.choice) q.set('choice', state.choice);
+      } else if (tab === 'window') {
+        q.set('panel', state.panel || 'notary');
+        if (state.stage) q.set('stage', String(state.stage));
+      }
+
+      if (state.target) q.set('target', state.target);
+      return q;
+    }
+
+    function parseHashRoute() {
+      const rawHash = location.hash.replace(/^#\/?/, '').trim();
+      if (!rawHash) return null;
+
+      const [pathPart] = rawHash.split('?');
+      const parts = pathPart.split('/').filter(Boolean);
+      if (!parts.length) return null;
+
+      const state = { tab: parts[0] };
+
+      if (TAB_ALIASES[state.tab]) {
+        const mapped = TAB_ALIASES[state.tab];
+        state.tab = mapped.tab;
+        state.nav = mapped.nav;
+        return state;
+      }
+
+      if (state.tab === 'today') {
+        if (parts[1] === 'choice' && parts[2]) {
+          state.choice = parts[2];
+          state.scene = 'rejected';
+        } else if (parts[1]) {
+          state.scene = sceneFromQuery(parts[1]);
+        }
+      } else if (state.tab === 'window') {
+        state.panel = parts[1] || 'notary';
+        if (parts[2] === 'stage' && parts[3]) {
+          state.stage = parseInt(parts[3], 10);
+        } else if (parts[2]) {
+          state.target = parts[2];
+        }
+      } else if (state.tab === 'tools' && parts[1]) {
+        state.tab = parts[1] === 'questions' ? 'questions' : parts[1] === 'backup' ? 'backup' : 'tools';
+        state.nav = 'tools';
+      }
+
+      return state;
+    }
+
+    function parseLocation() {
+      const search = new URLSearchParams(location.search);
+
+      if (search.has('tab')) {
+        const state = {
+          tab: search.get('tab'),
+          panel: search.get('panel') || undefined,
+          choice: search.get('choice') || undefined,
+          target: search.get('target') || search.get('id') || undefined,
+          stage: search.get('stage') ? parseInt(search.get('stage'), 10) : undefined
+        };
+        if (search.get('scene')) state.scene = sceneFromQuery(search.get('scene'));
+        return state;
+      }
+
+      return parseHashRoute() || { tab: 'today' };
+    }
+
+    function commitRoute() {
+      if (suppressRouteUpdate) return;
+      const q = buildQuery(routeState);
+      const next = location.pathname + '?' + q.toString();
+      const current = location.pathname + location.search;
+      if (current !== next || location.hash) {
+        history.pushState(null, '', next);
+      }
+    }
+
+    function scrollToTarget(targetId) {
+      if (!targetId) return;
+      setTimeout(() => {
+        const target = document.getElementById(targetId);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 80);
+    }
+
+    function applyRoute(state) {
+      suppressRouteUpdate = true;
+      const s = state || parseLocation();
+      routeState = { ...s };
+
+      if (s.tab === 'today') {
+        showTab('today', 'today', true);
+        if (s.scene) showScene(s.scene, true);
+        else backToScenes(false);
+        if (s.choice) showChoice(s.choice, true);
+      } else if (s.tab === 'window') {
+        showTab('window', 'window', true);
+        showWindowPanel(s.panel || 'notary', { stage: s.stage, silent: true });
+      } else if (s.tab === 'materials') {
+        showTab('materials', 'materials', true);
+      } else if (s.tab === 'tools') {
+        showTab('tools', 'tools', true);
+      } else if (s.tab === 'questions' || s.tab === 'backup') {
+        showTab(s.tab, 'tools', true);
+      } else if (document.getElementById('tab-' + s.tab)) {
+        const nav = s.nav || (s.tab === 'flow' || s.tab === 'timeline' ? 'today' : s.tab);
+        showTab(s.tab, nav, true);
+      } else {
+        showTab('today', 'today', true);
+        backToScenes(false);
+      }
+
+      scrollToTarget(s.target);
+      suppressRouteUpdate = false;
+    }
+
+    function showTab(name, navName, silent) {
       document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
       document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
       const section = document.getElementById('tab-' + name);
@@ -3012,35 +3394,80 @@
       });
       if (navTab) navTab.classList.add('active');
 
-      backToScenes(false);
+      if (name === 'today' && !silent) backToScenes(false);
+
+      if (!silent) {
+        routeState = { tab: name };
+        if (navName) routeState.nav = navName;
+        delete routeState.scene;
+        delete routeState.panel;
+        delete routeState.choice;
+        delete routeState.target;
+        delete routeState.stage;
+        delete routeState.sub;
+        scheduleRouteCommit();
+      }
+
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-    function showScene(name) {
+
+    function showScene(name, silent) {
+      const scene = SCENE_ALIASES[name] || name;
       document.getElementById('scene-home').style.display = 'none';
       document.querySelectorAll('.scene-panel').forEach(panel => panel.classList.remove('active'));
-      document.getElementById('scene-' + name).classList.add('active');
+      const panel = document.getElementById('scene-' + scene);
+      if (panel) panel.classList.add('active');
+
+      if (!silent) {
+        routeState.tab = 'today';
+        routeState.scene = scene;
+        delete routeState.choice;
+        scheduleRouteCommit();
+      }
+
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
     function backToScenes(scroll) {
       const home = document.getElementById('scene-home');
       if (!home) return;
       home.style.display = '';
       document.querySelectorAll('.scene-panel').forEach(panel => panel.classList.remove('active'));
+
+      if (!suppressRouteUpdate) {
+        routeState = { tab: 'today' };
+        delete routeState.scene;
+        delete routeState.choice;
+        scheduleRouteCommit();
+      }
+
       if (scroll !== false) window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-    function showChoice(name) {
+
+    function showChoice(name, silent) {
       document.querySelectorAll('.choice-detail').forEach(detail => detail.classList.remove('active'));
-      document.getElementById('choice-' + name).classList.add('active');
+      const detail = document.getElementById('choice-' + name);
+      if (detail) detail.classList.add('active');
+
+      if (!silent) {
+        routeState.tab = 'today';
+        routeState.scene = 'rejected';
+        routeState.choice = name;
+        scheduleRouteCommit();
+      }
     }
-    function showWindowPanel(name) {
+
+    function showWindowPanel(name, options) {
+      const opts = options === true ? { silent: true } : (options || {});
       document.querySelectorAll('.window-panel').forEach(panel => panel.classList.remove('active'));
       document.querySelectorAll('.seg-btn').forEach(btn => btn.classList.remove('active'));
       const panel = document.getElementById('window-' + name);
       if (panel) {
         panel.classList.add('active');
         const stages = panel.querySelectorAll('.window-stage');
+        const openCount = opts.stage ? parseInt(opts.stage, 10) : 2;
         stages.forEach((stage, index) => {
-          stage.open = index < 2;
+          stage.open = index < openCount;
         });
       }
       const btn = Array.from(document.querySelectorAll('.seg-btn')).find(el => {
@@ -3048,16 +3475,25 @@
         return action.includes("'" + name + "'") || action.includes('"' + name + '"');
       });
       if (btn) btn.classList.add('active');
-    }
-    function goTo(tabName, panelName, targetId) {
-      showTab(tabName);
-      if (panelName) showWindowPanel(panelName);
-      if (targetId) {
-        setTimeout(() => {
-          const target = document.getElementById(targetId);
-          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 80);
+
+      if (!opts.silent) {
+        routeState.tab = 'window';
+        routeState.panel = name;
+        if (opts.stage) routeState.stage = opts.stage;
+        else delete routeState.stage;
+        scheduleRouteCommit();
       }
+    }
+
+    function goTo(tabName, panelName, targetId) {
+      const state = { tab: tabName };
+      if (panelName) {
+        state.tab = 'window';
+        state.panel = panelName;
+      }
+      if (targetId) state.target = targetId;
+      applyRoute(state);
+      commitRoute();
     }
     function toggleSc(el) { el.classList.toggle('open'); }
     function cp(btn, id) {
@@ -3110,7 +3546,22 @@
       if (count) count.textContent = total ? done + ' / ' + total + ' 项' : '0 / 0 项';
       if (fill) fill.style.width = total ? Math.round(done / total * 100) + '%' : '0%';
     }
-    document.addEventListener('DOMContentLoaded', initMaterialChecks);
+    document.addEventListener('DOMContentLoaded', () => {
+      initMaterialChecks();
+      applyRoute(parseLocation());
+      if (!new URLSearchParams(location.search).has('tab')) {
+        commitRoute();
+      } else if (location.hash) {
+        commitRoute();
+      }
+    });
+    window.addEventListener('popstate', () => applyRoute(parseLocation()));
+    window.addEventListener('hashchange', () => {
+      if (location.hash && !new URLSearchParams(location.search).has('tab')) {
+        applyRoute(parseLocation());
+        commitRoute();
+      }
+    });
   </script>
 </body>
 </html>
